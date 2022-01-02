@@ -25,6 +25,10 @@ public class BaseTest {
         options.addArguments("--disable-notifications");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+        initPages();
+    }
+
+    public void initPages() {
         loginPage = new LoginPage(driver);
         projectsPage = new ProjectsPage(driver);
         newProjectPage = new NewProjectPage(driver);

@@ -12,7 +12,7 @@ public class ProjectsTests extends BaseTest {
                 .clickOnCreateProjectButton()
                 .createNewPublicProject("Project 2", "Proj2", "Some description for this project");
         Assert.assertTrue(projectRepositoryPage.isImageOnProjectRepositoryDisplayed());
-        Assert.assertEquals(projectRepositoryPage.getTextOnProjectRepository(), "Looks like you don’t have any suites and cases yet.");
+        Assert.assertEquals(projectRepositoryPage.getTextThatProjectRepositoryIsEmpty(), "Looks like you don’t have any suites and cases yet.");
     }
 
     @Test

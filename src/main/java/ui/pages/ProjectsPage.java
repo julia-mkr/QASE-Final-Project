@@ -39,12 +39,12 @@ public class ProjectsPage extends BasePage{
     }
 
     public boolean isDeletedProjectDisplayed(String projectName) {
-        ArrayList<String> projectNames = new ArrayList<>();
         Waiters.waitForElementsBecomeVisible(driver, projectTitles, 5);
         for(WebElement element : projectTitles) {
-            projectNames.add(element.getText());
-        }
-        return projectNames.contains(projectName);
+            if (element.getText().contains(projectName)) {
+                return true;
+            }
+        }   return false;
     }
 
     public boolean isCreateProjectButtonDisplayed() {

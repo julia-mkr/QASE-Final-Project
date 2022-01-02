@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.utils.Waiters;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectRepositoryPage extends BasePage {
@@ -17,7 +16,7 @@ public class ProjectRepositoryPage extends BasePage {
     @FindBy(xpath = "//*[contains(@alt,'No suites')]")
     WebElement imageOnProjectRepository;
     @FindBy(xpath = "//*[contains(@class,'no-project')]")
-    WebElement textOnProjectRepository;
+    WebElement emptyProjectRepositoryText;
     @FindBy(xpath = "//*[@class='nav-link-title' and contains(text(), 'Projects')]")
     WebElement projectsTab;
     @FindBy(id = "create-suite-button")
@@ -34,8 +33,8 @@ public class ProjectRepositoryPage extends BasePage {
         return imageOnProjectRepository.isDisplayed();
     }
 
-    public String getTextOnProjectRepository() {
-        return textOnProjectRepository.getText();
+    public String getTextThatProjectRepositoryIsEmpty() {
+        return emptyProjectRepositoryText.getText();
     }
 
     public CreateSuiteModalPage clickOnCreateSuiteButton() {
@@ -44,11 +43,11 @@ public class ProjectRepositoryPage extends BasePage {
     }
 
     public boolean isCreatedSuiteDisplayed(String suiteName) {
-        ArrayList<String> suiteNames = new ArrayList<>();
         Waiters.waitForElementsBecomeVisible(driver, suiteTitles, 5);
         for(WebElement element : suiteTitles) {
-            suiteNames.add(element.getText());
-        }
-        return suiteNames.contains(suiteName);
+            if (element.getText().contains(suiteName)) {
+                return true;
+            }
+        }  return false;
     }
 }
