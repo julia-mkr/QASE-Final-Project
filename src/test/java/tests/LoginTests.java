@@ -17,6 +17,6 @@ public class LoginTests extends BaseTest {
     public void loginUsingInvalidEmailTest() {
         loginPage.login(System.getProperty("invalidEmail", PropertyReader.getProperty("invalidEmail")),
                 System.getProperty("password", PropertyReader.getProperty("password")));
-        Assert.assertEquals(loginPage.getErrorMessage(), "These credentials do not match our records.");
+        Assert.assertEquals(loginPage.getErrorMessage(), EXPECTED_LOGIN_ERROR_MESSAGE);
     }
  }

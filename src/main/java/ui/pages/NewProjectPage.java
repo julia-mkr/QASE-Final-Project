@@ -3,6 +3,7 @@ package ui.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ui.elements.InputField;
 
 public class NewProjectPage extends BasePage {
 
@@ -10,22 +11,20 @@ public class NewProjectPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(id = "inputTitle")
-    WebElement projectName;
     @FindBy(id = "inputCode")
     WebElement projectCode;
     @FindBy(id = "inputDescription")
-    WebElement descriptionField;
+    WebElement descriptionInput;
     @FindBy(id = "public-access-type")
     WebElement publicAccessRadioBtn;
     @FindBy(xpath = "//*[@type='submit']")
     WebElement createProjectBtn;
 
-    public ProjectRepositoryPage createNewPublicProject(String projectName, String projectCode, String descriptionField) {
-        this.projectName.sendKeys(projectName);
+    public ProjectRepositoryPage createNewPublicProject(String projectName, String projectCode, String descriptionText) {
+        new InputField(driver, "Project name").writeTextIntoInputField(projectName);
         this.projectCode.clear();
         this.projectCode.sendKeys(projectCode);
-        this.descriptionField.sendKeys(descriptionField);
+        descriptionInput.sendKeys(descriptionText);
         publicAccessRadioBtn.click();
         clickOnCreateProjectButton();
         return new ProjectRepositoryPage(driver);

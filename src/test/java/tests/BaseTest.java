@@ -4,11 +4,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
+import testConstants.*;
 import ui.pages.*;
 
-public class BaseTest {
+public class BaseTest implements TConstants {
     WebDriver driver;
     ChromeOptions options;
     LoginPage loginPage;
@@ -17,6 +17,7 @@ public class BaseTest {
     ProjectRepositoryPage projectRepositoryPage;
     DeleteProjectPage deleteProjectPage;
     CreateSuiteModalPage createSuiteModalPage;
+    CreateTestCasePage createTestCasePage;
 
     @BeforeMethod
     public void initTest() {
@@ -35,6 +36,7 @@ public class BaseTest {
         projectRepositoryPage = new ProjectRepositoryPage(driver);
         deleteProjectPage = new DeleteProjectPage(driver);
         createSuiteModalPage = new CreateSuiteModalPage(driver);
+        createTestCasePage = new CreateTestCasePage(driver);
     }
 
     @AfterMethod

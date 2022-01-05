@@ -1,13 +1,12 @@
 package ui.pages;
 
-import ui.elements.DropDownMenu;
+import ui.elements.ProjectsDropdown;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.utils.Waiters;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectsPage extends BasePage{
@@ -34,7 +33,7 @@ public class ProjectsPage extends BasePage{
     }
 
     public DeleteProjectPage clickOnDeleteOption(String projectName) {
-        new DropDownMenu(driver, projectName).selectDeleteOption();
+        new ProjectsDropdown(driver, projectName).selectDeleteOption();
         return new DeleteProjectPage(driver);
     }
 
