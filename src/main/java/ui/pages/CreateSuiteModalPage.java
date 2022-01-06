@@ -17,15 +17,15 @@ public class CreateSuiteModalPage extends BasePage {
     WebElement createBtn;
 
     public ProjectRepositoryPage createSuiteFillingInRequiredFields(TestSuite testSuite) {
-        new InputField(driver, "Suite name").writeTextIntoInputField(testSuite.getSuiteName());
+        new InputField(driver, SUITE_NAME_LABEL).writeTextIntoInputField(testSuite.getSuiteName());
         clickOnCreateButton();
         return new ProjectRepositoryPage(driver);
     }
 
     public ProjectRepositoryPage createSuiteFillingInAllFields(TestSuite testSuite) {
-        new InputField(driver, "Suite name").writeTextIntoInputField(testSuite.getSuiteName());
-        new TextField(driver, "Description").writeTextIntoInputField(testSuite.getDescription());
-        new TextField(driver, "Preconditions").writeTextIntoInputField(testSuite.getPreCondition());
+        new InputField(driver, SUITE_NAME_LABEL).writeTextIntoInputField(testSuite.getSuiteName());
+        new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(testSuite.getDescription());
+        new TextField(driver, TS_PRECONDITIONS_LABEL).writeTextIntoTextField(testSuite.getPreCondition());
         clickOnCreateButton();
         return new ProjectRepositoryPage(driver);
     }

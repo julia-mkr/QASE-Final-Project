@@ -1,8 +1,8 @@
-package testConstants;
+package testData;
 
 import ui.objects.TestSuite;
 
-public interface TestSuiteConstants {
+public interface TestSuiteData {
 
     TestSuite DATA_FOR_TEST_SUITE_1 = TestSuite.builder()
             .suiteName("Smoke Tests for the app")

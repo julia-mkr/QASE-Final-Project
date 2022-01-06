@@ -1,8 +1,8 @@
-package testConstants;
+package testData;
 
 import ui.objects.TestCase;
 
-public interface TestCaseConstants {
+public interface TestCaseData {
 
     TestCase DATA_FOR_TEST_CASE_1 = TestCase.builder()
             .title("Log in")

@@ -15,7 +15,7 @@ public class TextField {
 
     private static final String TEXT_FIELD = "//*[text()='%s']//ancestor::*[contains(@id, 'Group')]//p";
 
-    public void writeTextIntoInputField(String text) {
+    public void writeTextIntoTextField(String text) {
         driver.findElement(By.xpath(String.format(TEXT_FIELD, label))).sendKeys(text);
     }
 }

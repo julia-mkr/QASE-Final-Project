@@ -21,7 +21,7 @@ public class NewProjectPage extends BasePage {
     WebElement createProjectBtn;
 
     public ProjectRepositoryPage createNewPublicProject(String projectName, String projectCode, String descriptionText) {
-        new InputField(driver, "Project name").writeTextIntoInputField(projectName);
+        new InputField(driver, PROJECT_NAME_LABEL).writeTextIntoInputField(projectName);
         this.projectCode.clear();
         this.projectCode.sendKeys(projectCode);
         descriptionInput.sendKeys(descriptionText);

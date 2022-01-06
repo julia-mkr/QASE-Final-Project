@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
-import testConstants.*;
+import testData.*;
 import ui.pages.*;
 
-public class BaseTest implements TConstants {
+public class BaseTest implements TestData {
     WebDriver driver;
     ChromeOptions options;
     LoginPage loginPage;

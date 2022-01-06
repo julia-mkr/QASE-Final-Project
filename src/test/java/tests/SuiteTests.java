@@ -2,10 +2,10 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testConstants.TestSuiteConstants;
+import testData.TestSuiteData;
 import ui.utils.PropertyReader;
 
-public class SuiteTests extends BaseTest implements TestSuiteConstants {
+public class SuiteTests extends BaseTest implements TestSuiteData {
 
     @Test
     public void createSuiteFillingInRequiredFieldsTest() {
