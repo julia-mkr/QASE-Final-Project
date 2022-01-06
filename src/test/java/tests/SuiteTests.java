@@ -2,16 +2,17 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import testData.TestSuiteData;
 import ui.utils.PropertyReader;
 
-public class SuiteTests extends BaseTest {
+public class SuiteTests extends BaseTest implements TestSuiteData {
 
     @Test
     public void createSuiteFillingInRequiredFieldsTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
                 .clickOnProject("Project 2")
                 .clickOnCreateSuiteButton()
-                .createSuiteFillingInRequiredFields("Smoke Tests");
+                .createSuiteFillingInRequiredFields(DATA_FOR_TEST_SUITE_1);
         Assert.assertTrue(projectRepositoryPage.isCreatedSuiteDisplayed("Smoke Tests"));
     }
 
@@ -20,7 +21,7 @@ public class SuiteTests extends BaseTest {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
                 .clickOnProject("Project 2")
                 .clickOnCreateSuiteButton()
-                .createSuiteFillingInAllFields("Regression Tests", "Description of the suite", "Preconditions");
+                .createSuiteFillingInAllFields(DATA_FOR_TEST_SUITE_2);
         Assert.assertTrue(projectRepositoryPage.isCreatedSuiteDisplayed("Regression Tests"));
     }
 }

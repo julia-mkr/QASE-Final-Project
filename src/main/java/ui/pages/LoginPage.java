@@ -10,8 +10,6 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    private static final String LOGIN_URL = "https://app.qase.io/login";
-
     @FindBy(id = "inputEmail")
     WebElement emailField;
     @FindBy(id = "inputPassword")

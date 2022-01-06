@@ -3,12 +3,12 @@ package ui.elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class DropDownMenu {
+public class ProjectsDropdown {
 
     WebDriver driver;
     String projectName;
 
-    public DropDownMenu(WebDriver driver, String projectName) {
+    public ProjectsDropdown(WebDriver driver, String projectName) {
         this.driver = driver;
         this.projectName = projectName;
     }

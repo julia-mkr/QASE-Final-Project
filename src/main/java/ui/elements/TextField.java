@@ -6,16 +6,16 @@ import org.openqa.selenium.WebDriver;
 public class TextField {
 
     WebDriver driver;
+    String label;
 
-    public TextField(WebDriver driver) {
+    public TextField(WebDriver driver, String label) {
         this.driver = driver;
+        this.label = label;
     }
 
-    private static final By DESCRIPTION_FIELD = By.xpath("//*[text()='Description']//ancestor::*[@id='descriptionGroup']//p");
-    private static final By PRECONDITIONS_FIELD = By.xpath("//*[text()='Preconditions']//ancestor::*[@id='preconditionsGroup']//p");
+    private static final String TEXT_FIELD = "//*[text()='%s']//ancestor::*[contains(@id, 'Group')]//p";
 
-    public void writeTextForSuite(String description, String preconditions) {
-        driver.findElement(DESCRIPTION_FIELD).sendKeys(description);
-        driver.findElement(PRECONDITIONS_FIELD).sendKeys(preconditions);
+    public void writeTextIntoTextField(String text) {
+        driver.findElement(By.xpath(String.format(TEXT_FIELD, label))).sendKeys(text);
     }
 }
