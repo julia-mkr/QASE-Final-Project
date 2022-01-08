@@ -1,12 +1,14 @@
 package ui.utils;
 
 import org.openqa.selenium.WebDriver;
-import ui.objects.TestCase;
+import ui.objects.*;
 import ui.pages.CreateTestCasePage;
+import ui.pages.DefectPage;
+import ui.pages.MilestonesPage;
 
 public class VerificationUtils {
 
-    public static boolean verifyTestCaseInputFieldsAndDropdownOption (WebDriver driver, TestCase testCase) {
+    public static boolean verifyTestCaseInputFieldsAndDropdownOptions(WebDriver driver, TestCase testCase) {
         boolean result = false;
         if (!testCase.getTitle().isEmpty()) {
             result = CreateTestCasePage.isEnteredTextDisplayed(driver, testCase.getTitle());
@@ -48,6 +50,48 @@ public class VerificationUtils {
         }
         if (!testCase.getExpectedResult().isEmpty()) {
             result = CreateTestCasePage.isEnteredTextDisplayed(driver, testCase.getExpectedResult());
+        }
+        return result;
+    }
+
+    public static boolean verifyMilestoneInputAndTextFields(WebDriver driver, Milestone milestone) {
+        boolean result = false;
+        if (!milestone.getMilestoneName().isEmpty()) {
+            result = MilestonesPage.isMilestoneTitleDisplayed(driver, milestone.getMilestoneName());
+        }
+        if (!milestone.getDescription().isEmpty()) {
+            result = MilestonesPage.isMilestoneDescriptionDisplayed(driver);
+        }
+        return result;
+    }
+
+    public static boolean verifyDefectInputAndTextFields(WebDriver driver, Defect defect) {
+        boolean result = false;
+        if (!defect.getDefectTitle().isEmpty()) {
+            result = DefectPage.isDefectTitleDisplayed(driver, defect.getDefectTitle());
+        }
+        if (!defect.getActualResult().isEmpty()) {
+            result = DefectPage.isDescriptionTextDisplayed(driver, defect.getActualResult());
+        }
+        return result;
+    }
+
+    public static boolean verifyDefectAllFieldsAndDropDownOptions(WebDriver driver, Defect defect) {
+        boolean result = false;
+        if (!defect.getDefectTitle().isEmpty()) {
+            result = DefectPage.isDefectTitleDisplayed(driver, defect.getDefectTitle());
+        }
+        if (!defect.getActualResult().isEmpty()) {
+            result = DefectPage.isDescriptionTextDisplayed(driver, defect.getActualResult());
+        }
+        if (!defect.getMilestones().isEmpty()) {
+            result = DefectPage.isOptionDisplayed(driver, defect.getMilestones());
+        }
+        if (!defect.getSeverity().isEmpty()) {
+            result = DefectPage.isOptionDisplayed(driver, defect.getSeverity());
+        }
+        if (!defect.getAssignee().isEmpty()) {
+            result = DefectPage.isAssigneeNameDisplayed(driver);
         }
         return result;
     }

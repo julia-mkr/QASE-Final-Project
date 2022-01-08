@@ -18,6 +18,13 @@ public class BaseTest implements TestData {
     DeleteProjectPage deleteProjectPage;
     CreateSuiteModalPage createSuiteModalPage;
     CreateTestCasePage createTestCasePage;
+    MilestonesPage milestonesPage;
+    CreateMilestonePage createMilestonePage;
+    DefectsPage defectsPage;
+    CreateNewDefectPage createNewDefectPage;
+    DefectPage defectPage;
+    UserMenuPage userMenuPage;
+    NavigationMenuPage navigationMenuPage;
 
     @BeforeMethod
     public void initTest() {
@@ -37,6 +44,13 @@ public class BaseTest implements TestData {
         deleteProjectPage = new DeleteProjectPage(driver);
         createSuiteModalPage = new CreateSuiteModalPage(driver);
         createTestCasePage = new CreateTestCasePage(driver);
+        milestonesPage = new MilestonesPage(driver);
+        createMilestonePage = new CreateMilestonePage(driver);
+        defectsPage = new DefectsPage(driver);
+        createNewDefectPage = new CreateNewDefectPage(driver);
+        defectPage = new DefectPage(driver);
+        userMenuPage = new UserMenuPage(driver);
+        navigationMenuPage = new NavigationMenuPage(driver);
     }
 
     @AfterMethod

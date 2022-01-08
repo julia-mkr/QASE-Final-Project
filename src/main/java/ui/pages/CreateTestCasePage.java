@@ -8,18 +8,18 @@ import ui.elements.*;
 import ui.objects.TestCase;
 import ui.utils.Waiters;
 
-public class CreateTestCasePage extends BasePage {
+public class CreateTestCasePage extends ProjectRepositoryPage {
 
     public CreateTestCasePage(WebDriver driver) {
         super(driver);
     }
 
     @FindBy(id = "save-case")
-    WebElement saveBtn;
+    private WebElement saveBtn;
     @FindBy(xpath = "//*[contains(@class,'add-attachment')]")
-    WebElement addAttachmentBtn;
+    private WebElement addAttachmentBtn;
     @FindBy(id = "add-step")
-    WebElement addStepBtn;
+    private WebElement addStepBtn;
     private static final String SELECTED_OPTION = "//*[text()='%s']//parent::*[contains(@class,'param')]//*[contains(@class,'param-value')]";
     private static final String ENTERED_TEXT = "//*[contains(@class,'preview')]//child::*[text()='%s']";
 
@@ -79,7 +79,6 @@ public class CreateTestCasePage extends BasePage {
         Waiters.waitForElementLocated(driver, addStepBtn, 5);
         jsClick(addStepBtn);
     }
-
 
     public static boolean isOptionDisplayed(WebDriver driver, String label) {
         return driver.findElement(By.xpath(String.format(SELECTED_OPTION, label))).isDisplayed();

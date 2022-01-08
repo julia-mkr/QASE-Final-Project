@@ -7,14 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.objects.TestSuite;
 
-public class CreateSuiteModalPage extends BasePage {
+public class CreateSuiteModalPage extends ProjectRepositoryPage {
 
     public CreateSuiteModalPage(WebDriver driver) {
         super(driver);
     }
 
     @FindBy(id = "save-suite-button")
-    WebElement createBtn;
+    private WebElement createBtn;
 
     public ProjectRepositoryPage createSuiteFillingInRequiredFields(TestSuite testSuite) {
         new InputField(driver, SUITE_NAME_LABEL).writeTextIntoInputField(testSuite.getSuiteName());

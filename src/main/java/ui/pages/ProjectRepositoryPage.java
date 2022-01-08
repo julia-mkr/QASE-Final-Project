@@ -4,36 +4,31 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ui.elements.SubMenu;
 import ui.utils.Waiters;
 
 import java.util.List;
 
-public class ProjectRepositoryPage extends BasePage {
+public class ProjectRepositoryPage extends ProjectsPage {
 
     public ProjectRepositoryPage(WebDriver driver) {
         super(driver);
     }
 
     @FindBy(id = "create-suite-button")
-    WebElement createSuiteBtn;
+    private WebElement createSuiteBtn;
     @FindBy(id = "create-case-button")
-    WebElement createTestBtn;
+    private WebElement createTestBtn;
     @FindBy(xpath = "//button[@title='Delete case']")
-    WebElement deleteCaseBtn;
+    private WebElement deleteCaseBtn;
     @FindBy(xpath = "//span[contains(@class,'titleText')]")
-    List<WebElement> suiteTitles;
+    private List<WebElement> suiteTitles;
     @FindBy(xpath = "//*[contains(@alt,'No suites')]")
-    WebElement imageOnProjectRepository;
+    private WebElement imageOnProjectRepository;
     @FindBy(xpath = "//*[contains(@class,'no-project')]")
-    WebElement emptyProjectRepositoryText;
+    private WebElement emptyProjectRepositoryText;
 
-    private static final String TAB_NAVIGATION = "//*[@class='nav-link-title' and contains(text(), '%s')]";
     private static final String TEST_CASE_TITLE = "//*[text()='%s' and contains(@class,'caseTitle')]";
-
-    public ProjectsPage clickOnNavigationTab(String tabName) {
-        driver.findElement(By.xpath(String.format(TAB_NAVIGATION, tabName))).click();
-        return new ProjectsPage(driver);
-    }
 
     public CreateSuiteModalPage clickOnCreateSuiteButton() {
         createSuiteBtn.click();
@@ -43,6 +38,16 @@ public class ProjectRepositoryPage extends BasePage {
     public CreateTestCasePage clickOnCreateCaseButton() {
         createTestBtn.click();
         return new CreateTestCasePage(driver);
+    }
+
+    public DefectsPage clickOnDefectSubMenuOption() {
+        new SubMenu(driver, "Defects").clickOnSubMenuOption();
+        return new DefectsPage(driver);
+    }
+
+    public MilestonesPage clickOnMilestonesSubMenuOption() {
+        new SubMenu(driver, "Milestones").clickOnSubMenuOption();
+        return new MilestonesPage(driver);
     }
 
     public ProjectRepositoryPage clickOnTestCase(String testCaseTitle) {

@@ -2,6 +2,7 @@ package ui.elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ui.utils.Waiters;
 
 public class ProjectsDropdown {
 
@@ -17,6 +18,7 @@ public class ProjectsDropdown {
     private static final String DELETE_OPTION = "//*[text()='%s']//ancestor::tr//*[@class='text-danger']";
 
     public void selectDeleteOption() {
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(PROJECT_DROPDOWN_MENU, projectName)), 5);
         driver.findElement(By.xpath(String.format(PROJECT_DROPDOWN_MENU, projectName))).click();
         driver.findElement(By.xpath(String.format(DELETE_OPTION, projectName))).click();
     }

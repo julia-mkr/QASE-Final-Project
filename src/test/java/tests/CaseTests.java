@@ -11,7 +11,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
     @Test
     public void createTestCaseFillingInRequiredFieldsTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
-                .clickOnProject("Project 2")
+                .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInRequiredFields(DATA_FOR_TEST_CASE_1)
                 .clickOnTestCase(DATA_FOR_TEST_CASE_1.getTitle());
@@ -21,17 +21,17 @@ public class CaseTests extends BaseTest implements TestCaseData {
     @Test
     public void createTestCaseFillingInRequiredFieldsAndSelectingValuesFromDropdownMenuTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
-                .clickOnProject("Project 2")
+                .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInRequiredFieldsAndSelectingOptionsFromDropdowns(DATA_FOR_TEST_CASE_2)
                 .clickOnTestCase(DATA_FOR_TEST_CASE_2.getTitle());
-        Assert.assertTrue(VerificationUtils.verifyTestCaseInputFieldsAndDropdownOption(driver, DATA_FOR_TEST_CASE_2));
+        Assert.assertTrue(VerificationUtils.verifyTestCaseInputFieldsAndDropdownOptions(driver, DATA_FOR_TEST_CASE_2));
     }
 
     @Test
     public void createTestCaseFillingInRequiredFieldsAndAttachingFileTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
-                .clickOnProject("Project 2")
+                .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestSuiteFillingInSomeFieldsAndAttachingFile(DATA_FOR_TEST_CASE_3, "TestCase.txt")
                 .clickOnTestCase(DATA_FOR_TEST_CASE_3.getTitle());
@@ -42,7 +42,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
     @Test
     public void createTestCaseFillingInInputFieldsTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
-                .clickOnProject("Project 2")
+                .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInInputFields(DATA_FOR_TEST_CASE_4)
                 .clickOnTestCase(DATA_FOR_TEST_CASE_4.getTitle());

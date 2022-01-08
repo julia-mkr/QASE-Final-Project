@@ -5,20 +5,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.elements.InputField;
 
-public class NewProjectPage extends BasePage {
+public class NewProjectPage extends ProjectsPage {
 
     public NewProjectPage(WebDriver driver) {
         super(driver);
     }
 
     @FindBy(id = "inputCode")
-    WebElement projectCode;
+    private WebElement projectCode;
     @FindBy(id = "inputDescription")
-    WebElement descriptionInput;
+    private WebElement descriptionInput;
     @FindBy(id = "public-access-type")
-    WebElement publicAccessRadioBtn;
+    private WebElement publicAccessRadioBtn;
     @FindBy(xpath = "//*[@type='submit']")
-    WebElement createProjectBtn;
+    private WebElement createProjectButton;
 
     public ProjectRepositoryPage createNewPublicProject(String projectName, String projectCode, String descriptionText) {
         new InputField(driver, PROJECT_NAME_LABEL).writeTextIntoInputField(projectName);
@@ -26,11 +26,11 @@ public class NewProjectPage extends BasePage {
         this.projectCode.sendKeys(projectCode);
         descriptionInput.sendKeys(descriptionText);
         publicAccessRadioBtn.click();
-        clickOnCreateProjectButton();
+        clickOnSaveProjectButton();
         return new ProjectRepositoryPage(driver);
     }
 
-    public void clickOnCreateProjectButton() {
-        createProjectBtn.click();
+    public void clickOnSaveProjectButton() {
+        createProjectButton.click();
     }
 }
