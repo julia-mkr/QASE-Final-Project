@@ -15,7 +15,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInRequiredFields(DATA_FOR_TEST_CASE_1)
                 .clickOnTestCase(DATA_FOR_TEST_CASE_1.getTitle());
-        Assert.assertTrue(CreateTestCasePage.isEnteredTextDisplayed(driver, DATA_FOR_TEST_CASE_1.getTitle()));
+        Assert.assertTrue(createTestCasePage.isEnteredTextDisplayed(DATA_FOR_TEST_CASE_1.getTitle()));
     }
 
     @Test
@@ -25,7 +25,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInRequiredFieldsAndSelectingOptionsFromDropdowns(DATA_FOR_TEST_CASE_2)
                 .clickOnTestCase(DATA_FOR_TEST_CASE_2.getTitle());
-        Assert.assertTrue(VerificationUtils.verifyTestCaseInputFieldsAndDropdownOptions(driver, DATA_FOR_TEST_CASE_2));
+        Assert.assertTrue(verificationUtils.verifyTestCaseInputFieldsAndDropdownOptions(DATA_FOR_TEST_CASE_2));
     }
 
     @Test
@@ -35,8 +35,8 @@ public class CaseTests extends BaseTest implements TestCaseData {
                 .clickOnCreateCaseButton()
                 .createTestSuiteFillingInSomeFieldsAndAttachingFile(DATA_FOR_TEST_CASE_3, "TestCase.txt")
                 .clickOnTestCase(DATA_FOR_TEST_CASE_3.getTitle());
-        Assert.assertTrue(CreateTestCasePage.isEnteredTextDisplayed(driver, DATA_FOR_TEST_CASE_3.getTitle()));
-        Assert.assertTrue(CreateTestCasePage.isEnteredTextDisplayed(driver, DATA_FOR_TEST_CASE_3.getDescription()));
+        Assert.assertTrue(createTestCasePage.isEnteredTextDisplayed(DATA_FOR_TEST_CASE_3.getTitle()));
+        Assert.assertTrue(createTestCasePage.isEnteredTextDisplayed(DATA_FOR_TEST_CASE_3.getDescription()));
     }
 
     @Test
@@ -46,6 +46,6 @@ public class CaseTests extends BaseTest implements TestCaseData {
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInInputFields(DATA_FOR_TEST_CASE_4)
                 .clickOnTestCase(DATA_FOR_TEST_CASE_4.getTitle());
-        VerificationUtils.verifyTestCaseInputAndTextFields(driver, DATA_FOR_TEST_CASE_4);
+        Assert.assertTrue(verificationUtils.verifyTestCaseInputAndTextFields(DATA_FOR_TEST_CASE_4));
     }
 }

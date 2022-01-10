@@ -5,8 +5,8 @@ import lombok.*;
 @Data
 @Builder
 public class Milestone {
-    String milestoneName;
-    String description;
-    String status;
-    String dueData;
+    private String milestoneName;
+    private String description;
+    private String status;
+    private String dueData;
 }

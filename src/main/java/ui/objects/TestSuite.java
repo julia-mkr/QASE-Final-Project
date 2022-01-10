@@ -5,7 +5,7 @@ import lombok.*;
 @Data
 @Builder
 public class TestSuite {
-    String suiteName;
-    String description;
-    String preCondition;
+    private String suiteName;
+    private String description;
+    private String preCondition;
 }

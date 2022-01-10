@@ -24,12 +24,12 @@ public class MilestonesPage extends ProjectRepositoryPage {
         return new CreateMilestonePage(driver);
     }
 
-    public static boolean isMilestoneTitleDisplayed(WebDriver driver, String milestoneName) {
+    public boolean isMilestoneTitleDisplayed(String milestoneName) {
         Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(MILESTONE_TITLE, milestoneName)), 5);
         return driver.findElement(By.xpath(String.format(MILESTONE_TITLE, milestoneName))).isDisplayed();
     }
 
-    public static boolean isMilestoneDescriptionDisplayed(WebDriver driver) {
+    public boolean isMilestoneDescriptionDisplayed() {
         return driver.findElement(By.xpath(MILESTONE_DESCRIPTION)).isDisplayed();
     }
 }

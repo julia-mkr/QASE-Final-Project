@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.TestDefectData;
 import ui.utils.PropertyReader;
-import ui.utils.VerificationUtils;
 
 public class DefectTests extends BaseTest implements TestDefectData {
 
@@ -17,7 +16,7 @@ public class DefectTests extends BaseTest implements TestDefectData {
                 .clickOnCreateNewDefectButton()
                 .createNewDefectFillingInRequiredFields(DATA_FOR_TEST_DEFECT_1)
                 .clickOnDefectTitle(DATA_FOR_TEST_DEFECT_1.getDefectTitle());
-        Assert.assertTrue(VerificationUtils.verifyDefectInputAndTextFields(driver, DATA_FOR_TEST_DEFECT_1));
+        Assert.assertTrue(verificationUtils.verifyDefectInputAndTextFields(DATA_FOR_TEST_DEFECT_1));
     }
 
     @Test
@@ -29,7 +28,7 @@ public class DefectTests extends BaseTest implements TestDefectData {
                 .clickOnCreateNewDefectButton()
                 .createNewDefectFillingInAllFields(DATA_FOR_TEST_DEFECT_2)
                 .clickOnDefectTitle(DATA_FOR_TEST_DEFECT_2.getDefectTitle());
-        Assert.assertTrue(VerificationUtils.verifyDefectAllFieldsAndDropDownOptions(driver, DATA_FOR_TEST_DEFECT_2));
+        Assert.assertTrue(verificationUtils.verifyDefectAllFieldsAndDropDownOptions(DATA_FOR_TEST_DEFECT_2));
     }
 
     @Test
@@ -41,7 +40,7 @@ public class DefectTests extends BaseTest implements TestDefectData {
                 .clickOnCreateNewDefectButton()
                 .createNewDefectFillingInRequiredFieldsAndAttachingFile(DATA_FOR_TEST_DEFECT_3, "TestCase.txt")
                 .clickOnDefectTitle(DATA_FOR_TEST_DEFECT_3.getDefectTitle());
-        Assert.assertTrue(VerificationUtils.verifyDefectInputAndTextFields(driver, DATA_FOR_TEST_DEFECT_3));
+        Assert.assertTrue(verificationUtils.verifyDefectInputAndTextFields(DATA_FOR_TEST_DEFECT_3));
     }
 
     @Test
@@ -54,6 +53,6 @@ public class DefectTests extends BaseTest implements TestDefectData {
                 .createNewDefectFillingInRequiredFieldsAndSelectingSeverity(DATA_FOR_TEST_DEFECT_4)
                 .clickOnDefectTitle(DATA_FOR_TEST_DEFECT_4.getDefectTitle());
         defectPage.resolveDefect();
-        Assert.assertEquals(defectPage.isDefectStatusResolved(), "Resolved");
+        Assert.assertEquals(defectPage.getDefectStatus(), RESOLVED_DEFECT_STATUS);
     }
 }

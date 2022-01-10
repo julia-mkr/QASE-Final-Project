@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.TestMilestoneData;
 import ui.utils.PropertyReader;
-import ui.utils.VerificationUtils;
 
 public class MilestoneTests extends BaseTest implements TestMilestoneData {
 
@@ -16,7 +15,7 @@ public class MilestoneTests extends BaseTest implements TestMilestoneData {
                 .clickOnMilestonesSubMenuOption()
                 .clickOnCreateMilestoneButton()
                 .createMilestoneFillingInRequiredFields(DATA_FOR_TEST_MILESTONE_1);
-        Assert.assertTrue(VerificationUtils.verifyMilestoneInputAndTextFields(driver, DATA_FOR_TEST_MILESTONE_1));
+        Assert.assertTrue(verificationUtils.verifyMilestoneInputAndTextFields(DATA_FOR_TEST_MILESTONE_1));
     }
 
     @Test
@@ -27,6 +26,6 @@ public class MilestoneTests extends BaseTest implements TestMilestoneData {
                 .clickOnMilestonesSubMenuOption()
                 .clickOnCreateMilestoneButton()
                 .createMilestoneFillingInAllFields(DATA_FOR_TEST_MILESTONE_2);
-        Assert.assertTrue(VerificationUtils.verifyMilestoneInputAndTextFields(driver, DATA_FOR_TEST_MILESTONE_2));
+        Assert.assertTrue(verificationUtils.verifyMilestoneInputAndTextFields(DATA_FOR_TEST_MILESTONE_2));
     }
 }

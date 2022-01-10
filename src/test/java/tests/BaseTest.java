@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import testData.*;
 import ui.pages.*;
+import ui.utils.VerificationUtils;
 
 public class BaseTest implements TestData {
     WebDriver driver;
@@ -25,6 +26,7 @@ public class BaseTest implements TestData {
     DefectPage defectPage;
     UserMenuPage userMenuPage;
     NavigationMenuPage navigationMenuPage;
+    VerificationUtils verificationUtils;
 
     @BeforeMethod
     public void initTest() {
@@ -51,6 +53,7 @@ public class BaseTest implements TestData {
         defectPage = new DefectPage(driver);
         userMenuPage = new UserMenuPage(driver);
         navigationMenuPage = new NavigationMenuPage(driver);
+        verificationUtils = new VerificationUtils(driver);
     }
 
     @AfterMethod

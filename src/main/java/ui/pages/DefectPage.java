@@ -25,21 +25,21 @@ public class DefectPage extends DefectsPage {
     private static final By ASSIGNEE_NAME = By.xpath("//*[text()='Assignee']//parent::*[contains(@class,'param')]//*[contains(@class,'param-value')]//span");
     private static final By RESOLVED_DEFECT_STATUS = By.xpath("//span[@aria-label='Resolved']");
 
-    public static boolean isDefectTitleDisplayed(WebDriver driver, String title) {
+    public boolean isDefectTitleDisplayed(String title) {
         Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(DEFECT_TITLE, title)), 5);
         return driver.findElement(By.xpath(String.format(DEFECT_TITLE, title))).isDisplayed();
     }
 
-    public static boolean isDescriptionTextDisplayed(WebDriver driver, String text) {
+    public boolean isDescriptionTextDisplayed(String text) {
         return driver.findElement(By.xpath(String.format(DESCRIPTION_TEXT, text))).isDisplayed();
     }
 
-    public static boolean isOptionDisplayed(WebDriver driver, String label) {
+    public boolean isOptionDisplayed(String label) {
         Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(SELECTED_OPTION, label)), 5);
         return driver.findElement(By.xpath(String.format(SELECTED_OPTION, label))).isDisplayed();
     }
 
-    public static boolean isAssigneeNameDisplayed(WebDriver driver) {
+    public boolean isAssigneeNameDisplayed() {
         return driver.findElement(ASSIGNEE_NAME).isDisplayed();
     }
 
@@ -65,7 +65,7 @@ public class DefectPage extends DefectsPage {
         return this;
     }
 
-    public String isDefectStatusResolved() {
+    public String getDefectStatus() {
         Waiters.waitForElementBecomesVisible(driver,RESOLVED_DEFECT_STATUS, 5);
         return driver.findElement(RESOLVED_DEFECT_STATUS).getText();
     }

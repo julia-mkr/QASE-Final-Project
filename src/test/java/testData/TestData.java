@@ -8,4 +8,5 @@ public interface TestData {
     String LOGIN_URL = "https://app.qase.io/login";
     String PROJECT_TITLE = "Project 2";
     String PROJECT_TITLE_FOR_DELETION = "Project 3.0";
+    String RESOLVED_DEFECT_STATUS = "Resolved";
 }

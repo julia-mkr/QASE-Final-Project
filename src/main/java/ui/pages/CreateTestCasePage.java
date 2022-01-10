@@ -80,11 +80,11 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         jsClick(addStepBtn);
     }
 
-    public static boolean isOptionDisplayed(WebDriver driver, String label) {
+    public boolean isOptionDisplayed(String label) {
         return driver.findElement(By.xpath(String.format(SELECTED_OPTION, label))).isDisplayed();
     }
 
-    public static boolean isEnteredTextDisplayed(WebDriver driver, String text) {
+    public boolean isEnteredTextDisplayed(String text) {
         return driver.findElement(By.xpath(String.format(ENTERED_TEXT, text))).isDisplayed();
     }
 }

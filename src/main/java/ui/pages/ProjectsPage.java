@@ -1,6 +1,5 @@
 package ui.pages;
 
-import org.openqa.selenium.support.ui.Wait;
 import ui.elements.ProjectsDropdown;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
