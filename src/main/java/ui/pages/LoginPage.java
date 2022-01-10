@@ -11,13 +11,15 @@ public class LoginPage extends BasePage {
     }
 
     @FindBy(id = "inputEmail")
-    WebElement emailField;
+    private WebElement emailField;
     @FindBy(id = "inputPassword")
-    WebElement passwordField;
+    private WebElement passwordField;
     @FindBy(id = "btnLogin")
-    WebElement loginButton;
+    private WebElement loginButton;
     @FindBy(css = ".form-control-feedback")
-    WebElement errorMessage;
+    private WebElement errorMessage;
+    @FindBy(xpath = "//*[@class='logo']")
+    private WebElement qaseLogo;
 
     public ProjectsPage login(String email, String password) {
         openUrl(LOGIN_URL);
@@ -33,5 +35,13 @@ public class LoginPage extends BasePage {
 
     public String getErrorMessage() {
         return errorMessage.getText();
+    }
+
+    public String getCurrentPageUrl() {
+        return driver.getCurrentUrl();
+    }
+
+    public boolean isQaseLogoDisplayed() {
+        return qaseLogo.isDisplayed();
     }
 }

@@ -17,4 +17,14 @@ public interface IConstants {
     String ACTION_LABEL = "Action";
     String INPUT_DATA_LABEL = "Input data";
     String EXPECTED_RESULT_LABEL = "Expected result";
+    String MILESTONE_NAME_LABEL = "Milestone name";
+    String STATUS_LABEL = "Status";
+    String DUE_DATE_LABEL = "Due date";
+    String DEFECT_TITLE_LABEL = "Defect title";
+    String ACTUAL_RESULT_LABEL = "Actual result";
+    String MILESTONE_LABEL = "Milestone";
+    String SEVERITY_LABEL = "Severity";
+    String SIGN_OUT_USER_MENU_OPTION = "Sign out";
+    String PROJECTS_NAV_LABEL = "Projects";
+
 }

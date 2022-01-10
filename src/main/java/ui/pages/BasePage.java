@@ -19,7 +19,7 @@ public class BasePage implements IConstants {
     }
 
     @FindBy(xpath = "//input[@type='file']")
-    WebElement uploadFile;
+    private WebElement uploadFile;
 
     public void openUrl(String url) {
         driver.get(url);

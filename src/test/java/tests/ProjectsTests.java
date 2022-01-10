@@ -19,10 +19,10 @@ public class ProjectsTests extends BaseTest {
     public void deleteProjectTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
                 .clickOnCreateProjectButton()
-                .createNewPublicProject("Project 3.0", "Proj3", TEXT_FOR_PROJECT_DESCRIPTION_FIELD)
-                .clickOnNavigationTab("Projects")
-                .clickOnDeleteOption("Project 3.0")
+                .createNewPublicProject(PROJECT_TITLE_FOR_DELETION, "Proj3", TEXT_FOR_PROJECT_DESCRIPTION_FIELD);
+        navigationMenuPage.clickOnProjectNavigationTab()
+                .clickOnDeleteOption(PROJECT_TITLE_FOR_DELETION)
                 .confirmDeletingProject();
-        Assert.assertFalse(projectsPage.isDeletedProjectDisplayed("Project 3.0"));
+        Assert.assertFalse(projectsPage.isDeletedProjectDisplayed(PROJECT_TITLE_FOR_DELETION));
     }
 }
