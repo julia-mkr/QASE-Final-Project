@@ -27,6 +27,16 @@ public class BaseTest implements TestData {
     UserMenuPage userMenuPage;
     NavigationMenuPage navigationMenuPage;
     VerificationUtils verificationUtils;
+    WorkspacePage workspacePage;
+    InvitesPage invitesPage;
+    InviteNewUserModalPage inviteNewUserModalPage;
+    UserGroupsPage userGroupsPage;
+    CreateGroupPage createGroupPage;
+    GroupPage groupPage;
+    AddMemberToGroupModalPage addMemberToGroupModalPage;
+    TestPlansPage testPlansPage;
+    CreateTestPlanPage createTestPlanPage;
+    UploadFileModalPage uploadFileModalPage;
 
     @BeforeMethod
     public void initTest() {
@@ -54,10 +64,20 @@ public class BaseTest implements TestData {
         userMenuPage = new UserMenuPage(driver);
         navigationMenuPage = new NavigationMenuPage(driver);
         verificationUtils = new VerificationUtils(driver);
+        workspacePage = new WorkspacePage(driver);
+        invitesPage = new InvitesPage(driver);
+        inviteNewUserModalPage = new InviteNewUserModalPage(driver);
+        userGroupsPage = new UserGroupsPage(driver);
+        createGroupPage = new CreateGroupPage(driver);
+        groupPage = new GroupPage(driver);
+        addMemberToGroupModalPage = new AddMemberToGroupModalPage(driver);
+        testPlansPage = new TestPlansPage(driver);
+        createTestPlanPage = new CreateTestPlanPage(driver);
+        uploadFileModalPage = new UploadFileModalPage(driver);
     }
 
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void tearDown() {
+//        driver.quit();
+//    }
 }

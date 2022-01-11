@@ -2,10 +2,10 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testData.TestDefectData;
+import testData.DefectTestData;
 import ui.utils.PropertyReader;
 
-public class DefectTests extends BaseTest implements TestDefectData {
+public class DefectTestTests extends BaseTest implements DefectTestData {
 
     @Test
     public void createDefectFillingInRequiredFieldsTest() {

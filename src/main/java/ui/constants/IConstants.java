@@ -26,5 +26,12 @@ public interface IConstants {
     String SEVERITY_LABEL = "Severity";
     String SIGN_OUT_USER_MENU_OPTION = "Sign out";
     String PROJECTS_NAV_LABEL = "Projects";
+    String WORKSPACE_NAV_LABEL = "Workspace";
+    String INVITES_SUB_MENU_LABEL = "Invites";
+    String GROUPS_SUB_MENU_LABEL = "Groups";
+    String GROUP_TITLE_LABEL = "Group title";
+    String DEFECTS_SUB_MENU_LABEL = "Defects";
+    String MILESTONES_SUB_MENU_LABEL = "Milestones";
+    String TEST_PLANS_SUB_MENU_LABEL = "Test Plans";
 
 }

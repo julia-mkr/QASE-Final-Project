@@ -61,7 +61,7 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(testCase.getDescription());
         clickOnAddAttachmentButton();
-        uploadFile(fileName);
+        UploadFileModalPage.uploadFile(fileName);
         clickOnSaveButton();
         return new ProjectRepositoryPage(driver);
     }

@@ -2,7 +2,9 @@ package testData;
 
 import ui.objects.Defect;
 
-public interface TestDefectData {
+public interface DefectTestData {
+
+    String RESOLVED_DEFECT_STATUS = "Resolved";
 
     Defect DATA_FOR_TEST_DEFECT_1 = Defect.builder()
             .defectTitle("The Search field does not search anything")

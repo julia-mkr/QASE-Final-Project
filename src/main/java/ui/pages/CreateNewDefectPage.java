@@ -3,11 +3,8 @@ package ui.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ui.elements.AssigneeDropdown;
-import ui.elements.DropDown;
-import ui.elements.InputField;
-import ui.elements.TextField;
-import ui.objects.Defect;
+import ui.elements.*;
+import ui.objects.*;
 import ui.utils.Waiters;
 
 public class CreateNewDefectPage extends DefectsPage {
@@ -46,7 +43,7 @@ public class CreateNewDefectPage extends DefectsPage {
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
         new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         clickOnAddAttachmentButton();
-        uploadFile(fileName);
+        UploadFileModalPage.uploadFile(fileName);
         clickOnCreateDefectButtonWithJs();
         return new DefectsPage(driver);
     }

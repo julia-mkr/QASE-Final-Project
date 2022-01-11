@@ -2,7 +2,7 @@ package testData;
 
 import ui.objects.Milestone;
 
-public interface TestMilestoneData {
+public interface MilestoneTestData {
 
     Milestone DATA_FOR_TEST_MILESTONE_1 = Milestone.builder()
             .milestoneName("Release 2.5")

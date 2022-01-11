@@ -3,7 +3,7 @@ package ui.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ui.elements.UserMenuDropdown;
+import ui.elements.*;
 import ui.utils.Waiters;
 
 public class UserMenuPage extends AppMenu {
