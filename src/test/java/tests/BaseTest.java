@@ -76,8 +76,8 @@ public class BaseTest implements TestData {
         uploadFileModalPage = new UploadFileModalPage(driver);
     }
 
-//    @AfterMethod
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void tearDown() {
+        driver.quit();
+    }
 }
