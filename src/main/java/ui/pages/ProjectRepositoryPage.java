@@ -41,13 +41,18 @@ public class ProjectRepositoryPage extends ProjectsPage {
     }
 
     public DefectsPage clickOnDefectSubMenuOption() {
-        new SubMenu(driver, "Defects").clickOnSubMenuOption();
+        new SubMenu(driver, DEFECTS_SUB_MENU_LABEL).clickOnSubMenuOption();
         return new DefectsPage(driver);
     }
 
     public MilestonesPage clickOnMilestonesSubMenuOption() {
-        new SubMenu(driver, "Milestones").clickOnSubMenuOption();
+        new SubMenu(driver, MILESTONES_SUB_MENU_LABEL).clickOnSubMenuOption();
         return new MilestonesPage(driver);
+    }
+
+    public TestPlansPage clickOnTestPlansSubMenuOption() {
+        new SubMenu(driver, TEST_PLANS_SUB_MENU_LABEL).clickOnSubMenuOption();
+        return new TestPlansPage(driver);
     }
 
     public ProjectRepositoryPage clickOnTestCase(String testCaseTitle) {

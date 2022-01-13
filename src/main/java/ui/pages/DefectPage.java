@@ -55,7 +55,7 @@ public class DefectPage extends DefectsPage {
         clickOnConfirmButton();
     }
 
-    private void clickOnConfirmButton() {
+    public void clickOnConfirmButton() {
         confirmBtn.click();
     }
 

@@ -105,4 +105,19 @@ public class VerificationUtils {
         }
         return result;
     }
+
+    public boolean verifyNewUserInvitation(InvitationOfNewUser invitationOfNewUser) {
+        InvitesPage invitesPage = new InvitesPage(driver);
+        boolean result = false;
+        if (!invitationOfNewUser.getName().isEmpty()) {
+            result = invitesPage.isMemberNameDisplayed(invitationOfNewUser.getName());
+        }
+        if (!invitationOfNewUser.getEmail().isEmpty()) {
+            result &= invitesPage.isMemberEmailDisplayed(invitationOfNewUser.getEmail());
+        }
+        if (!invitationOfNewUser.getRoleTitle().isEmpty()) {
+            result &= invitesPage.isMemberRoleTitleDisplayed(invitationOfNewUser.getRoleTitle());
+        }
+        return result;
+    }
 }

@@ -2,10 +2,10 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testData.TestMilestoneData;
+import testData.MilestoneTestData;
 import ui.utils.PropertyReader;
 
-public class MilestoneTests extends BaseTest implements TestMilestoneData {
+public class MilestoneTests extends BaseTest implements MilestoneTestData {
 
     @Test
     public void createMilestoneFillingInRequiredFieldsTest() {

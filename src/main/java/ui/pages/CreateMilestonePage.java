@@ -31,7 +31,7 @@ public class CreateMilestonePage extends MilestonesPage {
         return new MilestonesPage(driver);
     }
 
-    private void clickOnSaveMilestoneButton() {
+    public void clickOnSaveMilestoneButton() {
         createMilestoneBtn.click();
     }
 }

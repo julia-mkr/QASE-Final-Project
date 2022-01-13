@@ -1,5 +1,6 @@
 package ui.pages;
 
+import com.sun.deploy.util.Waiter;
 import ui.elements.ProjectsDropdown;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,8 +20,6 @@ public class ProjectsPage extends BasePage{
     private WebElement createProjectBtn;
     @FindBy(css = ".defect-title")
     private List<WebElement> projectTitles;
-    private static final String PROJECT_TITLE = "//*[@class='defect-title' and text()='%s']";
-
 
     public NewProjectPage clickOnCreateProjectButton() {
         createProjectBtn.click();
@@ -28,8 +27,10 @@ public class ProjectsPage extends BasePage{
     }
 
     public ProjectRepositoryPage clickOnProject(String projectName) {
-        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(PROJECT_TITLE, projectName)), 5);
-        driver.findElement(By.xpath(String.format(PROJECT_TITLE, projectName))).click();
+        Waiters.waitForElementsBecomeVisible(driver, projectTitles, 5);
+        projectTitles.stream()
+                .filter(title -> title.getText().matches(projectName))
+                .forEach(WebElement::click);
         return new ProjectRepositoryPage(driver);
     }
 
