@@ -31,11 +31,11 @@ public class CreateTestPlanPage extends TestPlansPage {
         return new TestPlansPage(driver);
     }
 
-    private void clickOnCreatePlanButton() {
+    public void clickOnCreatePlanButton() {
         createPlanBtn.click();
     }
 
-    private void clickOnAddCasesButton() {
+    public void clickOnAddCasesButton() {
         addCasesBtn.click();
     }
 
@@ -45,7 +45,7 @@ public class CreateTestPlanPage extends TestPlansPage {
         clickOnDoneButton();
     }
 
-    private void clickOnDoneButton() {
+    public void clickOnDoneButton() {
         doneBtn.click();
     }
 }

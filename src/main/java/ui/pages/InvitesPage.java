@@ -28,9 +28,11 @@ public class InvitesPage extends WorkspacePage {
         Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(MEMBER_NAME, name)), 5);
         return driver.findElement(By.xpath(String.format(MEMBER_NAME, name))).isDisplayed();
     }
+
     public boolean isMemberEmailDisplayed(String email) {
         return driver.findElement(By.xpath(String.format(MEMBER_EMAIL, email))).isDisplayed();
     }
+
     public boolean isMemberRoleTitleDisplayed(String roleTitle) {
         return driver.findElement(By.xpath(String.format(MEMBER_ROLE_TITLE, roleTitle))).isDisplayed();
     }

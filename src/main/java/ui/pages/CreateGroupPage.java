@@ -33,7 +33,7 @@ public class CreateGroupPage extends UserGroupsPage {
         return this;
     }
 
-    private void clickOnCreateButton() {
+    public void clickOnCreateButton() {
         createBtn.click();
     }
 

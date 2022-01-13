@@ -53,7 +53,7 @@ public class InviteNewUserModalPage extends InvitesPage {
         return invalidEmailMessage.getText();
     }
 
-    private void clickOnInviteButton() {
+    public void clickOnInviteButton() {
         inviteBtn.click();
     }
 }

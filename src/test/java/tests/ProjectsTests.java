@@ -10,7 +10,7 @@ public class ProjectsTests extends BaseTest {
     public void createNewProjectTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
                 .clickOnCreateProjectButton()
-                .createNewPublicProject(PROJECT_TITLE, PROJECT_CODE, TEXT_FOR_PROJECT_DESCRIPTION_FIELD);
+                .createNewPublicProject(PROJECT_TITLE_FOR_CREATION, PROJECT_CODE_FOR_CREATION, TEXT_FOR_PROJECT_DESCRIPTION_FIELD);
         Assert.assertTrue(projectRepositoryPage.isImageOnProjectRepositoryDisplayed());
         Assert.assertEquals(projectRepositoryPage.getTextThatProjectRepositoryIsEmpty(), EXPECTED_EMPTY_REPOSITORY_TEXT);
     }

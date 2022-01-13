@@ -78,6 +78,8 @@ public class BaseTest implements TestData {
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

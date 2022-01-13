@@ -29,12 +29,12 @@ public class AddMemberToGroupModalPage extends GroupPage {
         return new GroupPage(driver);
     }
 
-    private void clickOnDropdownMenu() {
+    public void clickOnDropdownMenu() {
         Waiters.waitForElementLocated(driver, dropdownMenu, 5);
         dropdownMenu.click();
     }
 
-    private void clickOnAddMemberButtonOnModal() {
+    public void clickOnAddMemberButtonOnModal() {
         addMemberBtnOnModal.click();
     }
 }

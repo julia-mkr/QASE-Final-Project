@@ -57,15 +57,15 @@ public class CreateNewDefectPage extends DefectsPage {
         return new DefectsPage(driver);
     }
 
-    private void clickOnCreateDefectButton() {
+    public void clickOnCreateDefectButton() {
         createDefectButton.click();
     }
 
-    private void clickOnCreateDefectButtonWithJs() {
+    public void clickOnCreateDefectButtonWithJs() {
         jsClick(createDefectButton);
     }
 
-    private void clickOnAddAttachmentButton() {
+    public void clickOnAddAttachmentButton() {
         jsClick(addAttachmentBtn);
     }
 }
