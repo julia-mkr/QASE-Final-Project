@@ -7,7 +7,7 @@ import ui.utils.PropertyReader;
 
 public class MilestoneTests extends BaseTest implements MilestoneTestData {
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test creates a milestone filling in the required fields")
     public void createMilestoneFillingInRequiredFieldsTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
                         System.getProperty("password", PropertyReader.getProperty("password")))
@@ -18,7 +18,7 @@ public class MilestoneTests extends BaseTest implements MilestoneTestData {
         Assert.assertTrue(verificationUtils.verifyMilestoneInputAndTextFields(DATA_FOR_TEST_MILESTONE_1));
     }
 
-    @Test
+    @Test(groups = {"Critical"}, description = "The test creates a milestone filling in all the fields")
     public void createMilestoneFillingInAllFieldsTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
                 System.getProperty("password", PropertyReader.getProperty("password")))

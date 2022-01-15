@@ -1,8 +1,6 @@
 package ui.pages;
 
-import com.sun.deploy.util.Waiter;
 import ui.elements.ProjectsDropdown;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

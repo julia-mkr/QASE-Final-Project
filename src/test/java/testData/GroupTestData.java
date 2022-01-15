@@ -8,4 +8,5 @@ public interface GroupTestData {
     String EMPTY_DESCRIPTION_FIELD_ERROR = "The description field is required.";
     String GROUP_TITLE_FOR_TEST_3 = "Java developers";
     String GROUP_DESCRIPTION_FOR_TEST_3 = "This is a group for Java developers";
+    String MEMBER_NAME = "Kate";
 }

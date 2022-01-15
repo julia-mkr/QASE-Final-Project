@@ -8,7 +8,7 @@ import ui.utils.*;
 
 public class CaseTests extends BaseTest implements TestCaseData {
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields")
     public void createTestCaseFillingInRequiredFieldsTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
                 .clickOnProject(PROJECT_TITLE)
@@ -18,7 +18,8 @@ public class CaseTests extends BaseTest implements TestCaseData {
         Assert.assertTrue(createTestCasePage.isEnteredTextDisplayed(DATA_FOR_TEST_CASE_1.getTitle()));
     }
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and " +
+            "selecting value options from some dropdown menus")
     public void createTestCaseFillingInRequiredFieldsAndSelectingValuesFromDropdownMenuTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
                 .clickOnProject(PROJECT_TITLE)
@@ -28,7 +29,8 @@ public class CaseTests extends BaseTest implements TestCaseData {
         Assert.assertTrue(verificationUtils.verifyTestCaseInputFieldsAndDropdownOptions(DATA_FOR_TEST_CASE_2));
     }
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and attaching a file" +
+            "to it")
     public void createTestCaseFillingInRequiredFieldsAndAttachingFileTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
                 .clickOnProject(PROJECT_TITLE)
@@ -39,7 +41,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
         Assert.assertTrue(createTestCasePage.isEnteredTextDisplayed(DATA_FOR_TEST_CASE_3.getDescription()));
     }
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and all the text fields")
     public void createTestCaseFillingInInputFieldsTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
                 .clickOnProject(PROJECT_TITLE)

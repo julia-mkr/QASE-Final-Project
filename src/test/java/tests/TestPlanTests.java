@@ -6,7 +6,7 @@ import ui.utils.PropertyReader;
 
 public class TestPlanTests extends BaseTest {
 
-    @Test
+    @Test(groups = "Smoke", description = "The test creates a test plan filling in all the fields and adding test cases to it")
     public void createTestPlanFillingInAllFieldsAndAddingTests() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
                         System.getProperty("password", PropertyReader.getProperty("password")))

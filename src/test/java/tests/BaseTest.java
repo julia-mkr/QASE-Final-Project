@@ -76,7 +76,7 @@ public class BaseTest implements TestData {
         uploadFileModalPage = new UploadFileModalPage(driver);
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
             driver.quit();
