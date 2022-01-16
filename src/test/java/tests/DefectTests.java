@@ -5,9 +5,9 @@ import org.testng.annotations.Test;
 import testData.DefectTestData;
 import ui.utils.PropertyReader;
 
-public class DefectTestTests extends BaseTest implements DefectTestData {
+public class DefectTests extends BaseTest implements DefectTestData {
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields")
     public void createDefectFillingInRequiredFieldsTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
                         System.getProperty("password", PropertyReader.getProperty("password")))
@@ -19,7 +19,8 @@ public class DefectTestTests extends BaseTest implements DefectTestData {
         Assert.assertTrue(verificationUtils.verifyDefectInputAndTextFields(DATA_FOR_TEST_DEFECT_1));
     }
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in all the fields and selecting value " +
+            "options from dropdown menus")
     public void createDefectFillingInAllFieldsTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
                         System.getProperty("password", PropertyReader.getProperty("password")))
@@ -31,7 +32,8 @@ public class DefectTestTests extends BaseTest implements DefectTestData {
         Assert.assertTrue(verificationUtils.verifyDefectAllFieldsAndDropDownOptions(DATA_FOR_TEST_DEFECT_2));
     }
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields and attaching a file" +
+            "to it")
     public void createDefectFillingInRequiredFieldsAndAttachingFileTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
                         System.getProperty("password", PropertyReader.getProperty("password")))
@@ -43,7 +45,7 @@ public class DefectTestTests extends BaseTest implements DefectTestData {
         Assert.assertTrue(verificationUtils.verifyDefectInputAndTextFields(DATA_FOR_TEST_DEFECT_3));
     }
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test creates a new defect and resolves it")
     public void resolveCreatedDefectTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
                         System.getProperty("password", PropertyReader.getProperty("password")))

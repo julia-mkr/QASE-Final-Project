@@ -6,7 +6,7 @@ import ui.utils.PropertyReader;
 
 public class ProjectsTests extends BaseTest {
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test creates a new public project")
     public void createNewProjectTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
                 .clickOnCreateProjectButton()
@@ -15,7 +15,7 @@ public class ProjectsTests extends BaseTest {
         Assert.assertEquals(projectRepositoryPage.getTextThatProjectRepositoryIsEmpty(), EXPECTED_EMPTY_REPOSITORY_TEXT);
     }
 
-    @Test
+    @Test(groups = {"Smoke"}, description = "The test deletes a created project")
     public void deleteProjectTest() {
         loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
                 .clickOnCreateProjectButton()
