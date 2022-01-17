@@ -13,6 +13,10 @@
             <class name="tests.GroupsTests"/>
             <class name="tests.InviteNewUserTests"/>
             <class name="tests.QaseTests"/>
+            <class name="tests.apiTests.ApiCaseTests"/>
+            <class name="tests.apiTests.ApiDefectTests"/>
+            <class name="tests.apiTests.ApiPlanTests"/>
+            <class name="tests.apiTests.UploadAttachmentTests"/>
         </classes>
     </test>
 </suite>
