@@ -2,7 +2,7 @@ package api.adapters;
 
 import api.objects.defectObjects.CreateDefect;
 import api.objects.defectObjects.Result;
-import api.objects.defectObjects.Root;
+import io.restassured.response.Response;
 
 public class DefectAdapter extends BaseAdapter {
 
@@ -12,9 +12,8 @@ public class DefectAdapter extends BaseAdapter {
     }
 
     public Result getSpecificDefect(String projectCode, int id) {
-        String body = get(String.format(SPECIFIC_DEFECT_URI, projectCode, id));
-        Root root = converter.fromJson(body, Root.class);
-        return root.getResult();
+        Response response = get(String.format(SPECIFIC_DEFECT_URI, projectCode, id));
+        return response.body().jsonPath().getObject("result", Result.class);
     }
 
     public void resolveSpecificDefect(String projectCode, int id) {

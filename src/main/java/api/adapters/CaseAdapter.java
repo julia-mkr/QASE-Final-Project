@@ -2,7 +2,7 @@ package api.adapters;
 
 import api.objects.caseObjects.CreateTestCase;
 import api.objects.caseObjects.Result;
-import api.objects.caseObjects.Root;
+import io.restassured.response.Response;
 
 public class CaseAdapter extends BaseAdapter {
 
@@ -11,9 +11,8 @@ public class CaseAdapter extends BaseAdapter {
     }
 
     public Result getSpecificTestCase(String projectCode, int id) {
-        String body = get(String.format(SPECIFIC_CASE_URI, projectCode, id));
-        Root root = gson.fromJson(body, Root.class);
-        return root.getResult();
+        Response response = get(String.format(SPECIFIC_CASE_URI, projectCode, id));
+        return response.body().jsonPath().getObject("result", Result.class);
     }
 
     public int createTestCaseAndUploadFileToIt(String projectCode, CreateTestCase testCase) {

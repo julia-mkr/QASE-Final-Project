@@ -1,6 +1,7 @@
 package api.adapters;
 
-import api.objects.uploadFileObjects.Root;
+import api.objects.uploadFileObjects.Result;
+import io.restassured.response.Response;
 
 public class UploadAttachmentAdapter extends BaseAdapter {
 
@@ -9,8 +10,7 @@ public class UploadAttachmentAdapter extends BaseAdapter {
     }
 
     public boolean isAttachmentUploaded(String hash) {
-        String body = get(String.format(ATTACHMENT_URI, hash));
-        Root root = converter.fromJson(body, Root.class);
-        return root.getResult().getHash().contains(hash);
+        Response response = get(String.format(ATTACHMENT_URI, hash));
+        return response.body().jsonPath().getObject("result", Result.class).getHash().contains(hash);
     }
 }

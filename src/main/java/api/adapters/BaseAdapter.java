@@ -32,14 +32,14 @@ public class BaseAdapter implements IConstants {
             .addHeader("Token", TOKEN)
             .build();
 
-    public String get(String url) {
+    public Response get(String url) {
         return given()
                 .spec(REQ_SPEC)
         .when()
                 .get(url)
         .then()
                 .log().all()
-                .extract().body().asString();
+                .extract().response();
     }
 
     public Response post(String url, String body) {
