@@ -13,6 +13,6 @@ public interface MilestoneTestData {
             .milestoneName("Release 2.9")
             .description("This is a milestone for Release 2.9.")
             .status("Completed")
-            .dueData("2022-01-30")
+            .dueDate("2022-01-30")
             .build();
 }

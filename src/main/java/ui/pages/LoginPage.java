@@ -1,5 +1,6 @@
 package ui.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +22,7 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//*[@class='logo']")
     private WebElement qaseLogo;
 
+    @Step("Log in using the email: '{email}' and the password: '{password}'")
     public ProjectsPage login(String email, String password) {
         openUrl(LOGIN_URL);
         emailField.sendKeys(email);
@@ -29,6 +31,7 @@ public class LoginPage extends BasePage {
         return new ProjectsPage(driver);
     }
 
+    @Step("Click on the 'Login' button")
     public void clickOnLoginButton() {
         loginButton.click();
     }

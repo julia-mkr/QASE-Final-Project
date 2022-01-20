@@ -8,5 +8,5 @@ public class Milestone {
     private String milestoneName;
     private String description;
     private String status;
-    private String dueData;
+    private String dueDate;
 }

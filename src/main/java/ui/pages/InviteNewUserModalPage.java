@@ -1,5 +1,6 @@
 package ui.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,8 @@ public class InviteNewUserModalPage extends InvitesPage {
     @FindBy (xpath = "//*[@id='emailGroup']//child::*[contains(@class,'feedback')]")
     private WebElement invalidEmailMessage;
 
+    @Step("Enter the email: '{invitationOfNewUser.email}', the name: '{invitationOfNewUser.name}' and " +
+            "the role title: '{invitationOfNewUser.roleTitle}'")
     public InvitesPage inviteNewUserFillingInAllInputFields(InvitationOfNewUser invitationOfNewUser) {
         new InputField(driver, "Email").writeTextIntoInputField(invitationOfNewUser.getEmail());
         new InputField(driver, "Name").writeTextIntoInputField(invitationOfNewUser.getName());
@@ -30,6 +33,8 @@ public class InviteNewUserModalPage extends InvitesPage {
         return new InvitesPage(driver);
     }
 
+    @Step("Enter the email: '{invitationOfNewUser.email}', the name: '{invitationOfNewUser.name}' and " +
+            "the role title: '{invitationOfNewUser.roleTitle}'")
     public InvitesPage inviteNewUserUsingInvalidData(InvitationOfNewUser invitationOfNewUser) {
         new InputField(driver, "Email").writeTextIntoInputField(invitationOfNewUser.getEmail());
         new InputField(driver, "Name").writeTextIntoInputField(invitationOfNewUser.getName());
@@ -53,6 +58,7 @@ public class InviteNewUserModalPage extends InvitesPage {
         return invalidEmailMessage.getText();
     }
 
+    @Step("Click in the 'Invite' button")
     public void clickOnInviteButton() {
         inviteBtn.click();
     }

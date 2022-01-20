@@ -3,14 +3,12 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.InvitesTestData;
-import ui.utils.PropertyReader;
 
 public class InviteNewUserTests extends BaseTest implements InvitesTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates an invitation of a new team member")
     public void createInvitationOfNewUserTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
-                System.getProperty("password", PropertyReader.getProperty("password")));
+        loginPage.login(EMAIL, PASSWORD);
         navigationMenuPage.clickOnWorkspaceNavigationTab()
                 .clickOnInvitesSubMenuTab()
                 .clickOnInviteNewMemberButton()
@@ -20,8 +18,7 @@ public class InviteNewUserTests extends BaseTest implements InvitesTestData {
 
     @Test(groups = {"Critical"}, description = "The test creates an invitation of a new team member without filling in the required input fields")
     public void createInvitationOfNewUserWithoutFillingInRequiredInputFieldsTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
-                System.getProperty("password", PropertyReader.getProperty("password")));
+        loginPage.login(EMAIL, PASSWORD);
         navigationMenuPage.clickOnWorkspaceNavigationTab()
                 .clickOnInvitesSubMenuTab()
                 .clickOnInviteNewMemberButton()
@@ -32,8 +29,7 @@ public class InviteNewUserTests extends BaseTest implements InvitesTestData {
 
     @Test(groups = {"Critical"}, description = "The test creates an invitation of a new team member entering an invalid email")
     public void createInvitationOfNewUserUsingInvalidEmailTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
-                System.getProperty("password", PropertyReader.getProperty("password")));
+        loginPage.login(EMAIL, PASSWORD);
         navigationMenuPage.clickOnWorkspaceNavigationTab()
                 .clickOnInvitesSubMenuTab()
                 .clickOnInviteNewMemberButton()

@@ -3,14 +3,12 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.GroupTestData;
-import ui.utils.PropertyReader;
 
 public class GroupsTests extends BaseTest implements GroupTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new group")
     public void createGroupTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
-                System.getProperty("password", PropertyReader.getProperty("password")));
+        loginPage.login(EMAIL, PASSWORD);
         navigationMenuPage.clickOnWorkspaceNavigationTab()
                 .clickOnGroupsSubMenuTab()
                 .clickOnCreateNewGroupButton()
@@ -21,8 +19,7 @@ public class GroupsTests extends BaseTest implements GroupTestData {
 
     @Test(groups = {"Critical"}, description = "The test creates a new group without filling in the required 'Description' field")
     public void createGroupWithoutFillingInDescriptionFieldTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
-                System.getProperty("password", PropertyReader.getProperty("password")));
+        loginPage.login(EMAIL, PASSWORD);
         navigationMenuPage.clickOnWorkspaceNavigationTab()
                 .clickOnGroupsSubMenuTab()
                 .clickOnCreateNewGroupButton()
@@ -32,8 +29,7 @@ public class GroupsTests extends BaseTest implements GroupTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new group and add a team member to it")
     public void addMemberToCreatedGroupTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
-                System.getProperty("password", PropertyReader.getProperty("password")));
+        loginPage.login(EMAIL, PASSWORD);
         navigationMenuPage.clickOnWorkspaceNavigationTab()
                 .clickOnGroupsSubMenuTab()
                 .clickOnCreateNewGroupButton()

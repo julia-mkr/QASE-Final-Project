@@ -3,14 +3,12 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.TestCaseData;
-import ui.pages.CreateTestCasePage;
-import ui.utils.*;
 
 public class CaseTests extends BaseTest implements TestCaseData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields")
     public void createTestCaseFillingInRequiredFieldsTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
+        loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInRequiredFields(DATA_FOR_TEST_CASE_1)
@@ -21,7 +19,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and " +
             "selecting value options from some dropdown menus")
     public void createTestCaseFillingInRequiredFieldsAndSelectingValuesFromDropdownMenuTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
+        loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInRequiredFieldsAndSelectingOptionsFromDropdowns(DATA_FOR_TEST_CASE_2)
@@ -32,7 +30,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and attaching a file" +
             "to it")
     public void createTestCaseFillingInRequiredFieldsAndAttachingFileTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
+        loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestSuiteFillingInSomeFieldsAndAttachingFile(DATA_FOR_TEST_CASE_3, "TestCase.txt")
@@ -43,7 +41,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and all the text fields")
     public void createTestCaseFillingInInputFieldsTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
+        loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInInputFields(DATA_FOR_TEST_CASE_4)

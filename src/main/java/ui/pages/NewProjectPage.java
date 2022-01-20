@@ -1,5 +1,6 @@
 package ui.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,17 +21,24 @@ public class NewProjectPage extends ProjectsPage {
     @FindBy(xpath = "//*[@type='submit']")
     private WebElement createProjectButton;
 
+    @Step("Enter the project name: '{projectName}', the project code: '{projectCode}' and the description: '{descriptionText}'")
     public ProjectRepositoryPage createNewPublicProject(String projectName, String projectCode, String descriptionText) {
         new InputField(driver, PROJECT_NAME_LABEL).writeTextIntoInputField(projectName);
         this.projectCode.clear();
         this.projectCode.sendKeys(projectCode);
         descriptionInput.sendKeys(descriptionText);
-        publicAccessRadioBtn.click();
+        clickOnPublicAccessTypeRadioBtn();
         clickOnSaveProjectButton();
         return new ProjectRepositoryPage(driver);
     }
 
+    @Step("Click on the 'Save project' button")
     public void clickOnSaveProjectButton() {
         createProjectButton.click();
+    }
+
+    @Step("Click on the 'Public' project access type")
+    public void clickOnPublicAccessTypeRadioBtn() {
+        publicAccessRadioBtn.click();
     }
 }

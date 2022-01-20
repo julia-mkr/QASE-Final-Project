@@ -1,5 +1,6 @@
 package ui.pages;
 
+import io.qameta.allure.Step;
 import ui.elements.ProjectsDropdown;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,11 +20,13 @@ public class ProjectsPage extends BasePage{
     @FindBy(css = ".defect-title")
     private List<WebElement> projectTitles;
 
+    @Step("Click on the 'Create Project' button")
     public NewProjectPage clickOnCreateProjectButton() {
         createProjectBtn.click();
         return new NewProjectPage(driver);
     }
 
+    @Step("Click on the project: '{projectName}'")
     public ProjectRepositoryPage clickOnProject(String projectName) {
         Waiters.waitForElementsBecomeVisible(driver, projectTitles, 5);
         projectTitles.stream()
@@ -32,11 +35,13 @@ public class ProjectsPage extends BasePage{
         return new ProjectRepositoryPage(driver);
     }
 
+    @Step("Delete the project:'{projectName}' clicking on the 'Delete' option")
     public DeleteProjectPage clickOnDeleteOption(String projectName) {
         new ProjectsDropdown(driver, projectName).selectDeleteOption();
         return new DeleteProjectPage(driver);
     }
 
+    @Step("Verify, that the deleted '{projectName}' project is not displayed")
     public boolean isDeletedProjectDisplayed(String projectName) {
         Waiters.waitForElementsBecomeVisible(driver, projectTitles, 5);
         for(WebElement element : projectTitles) {
