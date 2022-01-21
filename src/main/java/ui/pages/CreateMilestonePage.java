@@ -16,7 +16,8 @@ public class CreateMilestonePage extends MilestonesPage {
     @FindBy(xpath = "//*[text()='Create milestone' and contains(@class, 'save-button')]")
     private WebElement createMilestoneBtn;
 
-    @Step("Enter the milestone name: '{milestone.milestoneName}' and the description: '{milestone.description}'")
+    @Step("Create a new milestone filling in the required fields and entering the milestone name: '{milestone.milestoneName}' and " +
+            "the description: '{milestone.description}'")
     public MilestonesPage createMilestoneFillingInRequiredFields(Milestone milestone) {
         new InputField(driver, MILESTONE_NAME_LABEL).writeTextIntoInputField(milestone.getMilestoneName());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(milestone.getDescription());
@@ -24,8 +25,9 @@ public class CreateMilestonePage extends MilestonesPage {
         return new MilestonesPage(driver);
     }
 
-    @Step("Enter the milestone name: '{milestone.milestoneName}', the description: '{milestone.description}', " +
-            "the due date: '{milestone.dueDate}' and select the 'Status' value: '{milestone.status}'")
+    @Step("Create a new milestone filling in all the fields and entering the milestone name: '{milestone.milestoneName}', " +
+            "the description: '{milestone.description}', the due date: '{milestone.dueDate}' and " +
+            "select the 'Status' value: '{milestone.status}'")
     public MilestonesPage createMilestoneFillingInAllFields(Milestone milestone) {
         new InputField(driver, MILESTONE_NAME_LABEL).writeTextIntoInputField(milestone.getMilestoneName());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(milestone.getDescription());

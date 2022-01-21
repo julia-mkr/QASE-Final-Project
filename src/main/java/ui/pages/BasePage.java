@@ -21,7 +21,6 @@ public class BasePage implements IConstants {
         driver.get(url);
     }
 
-    @Step("Click on the '{element}' element using JS")
     public void jsClick(WebElement element) {
         JavascriptExecutor executor  = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", element);

@@ -1,11 +1,13 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ProjectsTests extends BaseTest {
 
-    @Test(groups = {"Smoke"}, description = "The test creates a new public project")
+    @Test(groups = {"Smoke"}, description = "The test creates a new project")
+    @Description("Creation of a new public project with filling all the input fields")
     public void createNewProjectTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnCreateProjectButton()
@@ -15,6 +17,7 @@ public class ProjectsTests extends BaseTest {
     }
 
     @Test(groups = {"Smoke"}, description = "The test deletes a created project")
+    @Description("Deletion of the project")
     public void deleteProjectTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnCreateProjectButton()

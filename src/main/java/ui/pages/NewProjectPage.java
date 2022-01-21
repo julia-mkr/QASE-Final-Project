@@ -21,7 +21,8 @@ public class NewProjectPage extends ProjectsPage {
     @FindBy(xpath = "//*[@type='submit']")
     private WebElement createProjectButton;
 
-    @Step("Enter the project name: '{projectName}', the project code: '{projectCode}' and the description: '{descriptionText}'")
+    @Step("Create a new public project entering the project name: '{projectName}', the project code: '{projectCode}' " +
+            "and the description: '{descriptionText}'")
     public ProjectRepositoryPage createNewPublicProject(String projectName, String projectCode, String descriptionText) {
         new InputField(driver, PROJECT_NAME_LABEL).writeTextIntoInputField(projectName);
         this.projectCode.clear();

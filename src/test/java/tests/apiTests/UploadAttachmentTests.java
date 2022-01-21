@@ -1,6 +1,7 @@
 package tests.apiTests;
 
 import api.adapters.UploadAttachmentAdapter;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.apiTestData.ApiConstants;
@@ -10,6 +11,7 @@ public class UploadAttachmentTests implements ApiConstants {
     UploadAttachmentAdapter uploadAttachmentAdapter = new UploadAttachmentAdapter();
 
     @Test(groups = "Smoke", description = "The test uploads a file using API")
+    @Description("Uploading of a file through API")
     public void uploadFileTest() {
         String hash = uploadAttachmentAdapter.uploadAttachment(PROJECT_CODE, "TestCase.txt");
         Assert.assertTrue(uploadAttachmentAdapter.isAttachmentUploaded(hash));

@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 
 public class UploadAttachmentAdapter extends BaseAdapter {
 
-    @Step("Upload the '{file}' file using API")
+    @Step("Upload the '{file}' file using the project code: '{projectCode}")
     public String uploadAttachment(String projectCode, String file) {
        return postAttachment(String.format(ATTACHMENT_URI, projectCode), file).body().path("result[0].hash");
     }

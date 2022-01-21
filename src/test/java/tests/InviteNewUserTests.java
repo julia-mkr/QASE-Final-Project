@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.InvitesTestData;
@@ -7,6 +8,7 @@ import testData.InvitesTestData;
 public class InviteNewUserTests extends BaseTest implements InvitesTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates an invitation of a new team member")
+    @Description("Creation of an invitation for a new team member")
     public void createInvitationOfNewUserTest() {
         loginPage.login(EMAIL, PASSWORD);
         navigationMenuPage.clickOnWorkspaceNavigationTab()
@@ -17,6 +19,7 @@ public class InviteNewUserTests extends BaseTest implements InvitesTestData {
     }
 
     @Test(groups = {"Critical"}, description = "The test creates an invitation of a new team member without filling in the required input fields")
+    @Description("Creation of an invitation for a new team member without filling in the required fields: 'Email' and 'Role title'")
     public void createInvitationOfNewUserWithoutFillingInRequiredInputFieldsTest() {
         loginPage.login(EMAIL, PASSWORD);
         navigationMenuPage.clickOnWorkspaceNavigationTab()
@@ -28,6 +31,7 @@ public class InviteNewUserTests extends BaseTest implements InvitesTestData {
     }
 
     @Test(groups = {"Critical"}, description = "The test creates an invitation of a new team member entering an invalid email")
+    @Description("Creation of an invitation for a new team member, that fills in all the fields, but enters an invalid email")
     public void createInvitationOfNewUserUsingInvalidEmailTest() {
         loginPage.login(EMAIL, PASSWORD);
         navigationMenuPage.clickOnWorkspaceNavigationTab()

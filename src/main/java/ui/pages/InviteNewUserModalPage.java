@@ -23,8 +23,8 @@ public class InviteNewUserModalPage extends InvitesPage {
     @FindBy (xpath = "//*[@id='emailGroup']//child::*[contains(@class,'feedback')]")
     private WebElement invalidEmailMessage;
 
-    @Step("Enter the email: '{invitationOfNewUser.email}', the name: '{invitationOfNewUser.name}' and " +
-            "the role title: '{invitationOfNewUser.roleTitle}'")
+    @Step("Create an invitation of new member filling in the email: '{invitationOfNewUser.email}', " +
+            "the name: '{invitationOfNewUser.name}' and the role title: '{invitationOfNewUser.roleTitle}'")
     public InvitesPage inviteNewUserFillingInAllInputFields(InvitationOfNewUser invitationOfNewUser) {
         new InputField(driver, "Email").writeTextIntoInputField(invitationOfNewUser.getEmail());
         new InputField(driver, "Name").writeTextIntoInputField(invitationOfNewUser.getName());
@@ -33,8 +33,8 @@ public class InviteNewUserModalPage extends InvitesPage {
         return new InvitesPage(driver);
     }
 
-    @Step("Enter the email: '{invitationOfNewUser.email}', the name: '{invitationOfNewUser.name}' and " +
-            "the role title: '{invitationOfNewUser.roleTitle}'")
+    @Step("Create an invitation of new member with invalid data entering the email: '{invitationOfNewUser.email}', " +
+            "the name: '{invitationOfNewUser.name}' and the role title: '{invitationOfNewUser.roleTitle}'")
     public InvitesPage inviteNewUserUsingInvalidData(InvitationOfNewUser invitationOfNewUser) {
         new InputField(driver, "Email").writeTextIntoInputField(invitationOfNewUser.getEmail());
         new InputField(driver, "Name").writeTextIntoInputField(invitationOfNewUser.getName());

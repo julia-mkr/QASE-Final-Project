@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.DefectTestData;
@@ -7,6 +8,7 @@ import testData.DefectTestData;
 public class DefectTests extends BaseTest implements DefectTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields")
+    @Description("Creation of a new defect report with filling in the required fields")
     public void createDefectFillingInRequiredFieldsTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
@@ -19,6 +21,8 @@ public class DefectTests extends BaseTest implements DefectTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in all the fields and selecting value " +
             "options from dropdown menus")
+    @Description("Creation of a new defect report with filling in all the fields and selecting values from the 'Milestones', " +
+            "'Severity', and 'Assignee' dropdowns")
     public void createDefectFillingInAllFieldsTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
@@ -31,17 +35,19 @@ public class DefectTests extends BaseTest implements DefectTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields and attaching a file" +
             "to it")
+    @Description("Creation of a new defect report with filling in the required fields and attaching a file to it")
     public void createDefectFillingInRequiredFieldsAndAttachingFileTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
                 .clickOnDefectsSubMenuOption()
                 .clickOnCreateNewDefectButton()
-                .createNewDefectFillingInRequiredFieldsAndAttachingFile(DATA_FOR_TEST_DEFECT_3, "TestCase.txt")
+                .createNewDefectFillingInRequiredFieldsAndAttachingFile(DATA_FOR_TEST_DEFECT_3, ATTACHING_FILE)
                 .clickOnDefectTitle(DATA_FOR_TEST_DEFECT_3.getDefectTitle());
         Assert.assertTrue(verificationUtils.verifyDefectInputAndTextFields(DATA_FOR_TEST_DEFECT_3));
     }
 
     @Test(groups = {"Smoke"}, description = "The test creates a new defect and resolves it")
+    @Description("Resolving of the defect")
     public void resolveCreatedDefectTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)

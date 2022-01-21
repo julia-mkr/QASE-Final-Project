@@ -24,7 +24,7 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
     private static final String SELECTED_OPTION = "//*[text()='%s']//parent::*[contains(@class,'param')]//*[contains(@class,'param-value')]";
     private static final String ENTERED_TEXT = "//*[contains(@class,'preview')]//child::*[text()='%s']";
 
-    @Step("Enter the case title: '{testCase.title}' into the input field")
+    @Step("Create a new test case filling in the required fields entering the case title: '{testCase.title}' into the input field")
     public ProjectRepositoryPage createTestCaseFillingInRequiredFields(TestCase testCase) {
         Waiters.waitForElementLocated(driver, saveBtn, 5);
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
@@ -32,8 +32,10 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         return new ProjectRepositoryPage(driver);
     }
 
-    @Step("Enter the case title: '{testCase.title}' into the input field and select the 'Suite' value: '{testCase.suite}', " +
-            "the 'Priority' value: '{testCase.priority}', the 'Type' value: '{testCase.type}', the 'Layer' value: '{testCase.layer}', " +
+    @Step("Create a new test case entering the case title: '{testCase.title}' into the input field and select " +
+            "the 'Suite' value: '{testCase.suite}', " +
+            "the 'Priority' value: '{testCase.priority}', the 'Type' value: '{testCase.type}', " +
+            "the 'Layer' value: '{testCase.layer}', " +
             "the 'Automation status' value: '{testCase.automationStatus}' from the dropdown menu")
     public ProjectRepositoryPage createTestCaseFillingInRequiredFieldsAndSelectingOptionsFromDropdowns(TestCase testCase) {
         Waiters.waitForElementLocated(driver, saveBtn, 5);
@@ -47,8 +49,8 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         return new ProjectRepositoryPage(driver);
     }
 
-    @Step("Enter the case title: '{testCase.title}', the description: '{testCase.description}', the preconditions: " +
-            "'{testCase.preConditions}', the post-conditions: '{testCase.postConditions}'," +
+    @Step("Create a new test case entering the case title: '{testCase.title}', the description: '{testCase.description}', " +
+            "the preconditions: '{testCase.preConditions}', the post-conditions: '{testCase.postConditions}'," +
             " the action: '{testCase.action}', the input data: '{testCase.inputData}', and the expected result: " +
             "'{testCase.expectedResult}' into the input fields")
     public ProjectRepositoryPage createTestCaseFillingInInputFields(TestCase testCase) {
@@ -65,9 +67,10 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         return new ProjectRepositoryPage(driver);
     }
 
-    @Step("Enter the case title: '{testCase.title}', the description: '{testCase.description}' into the input fields and " +
+    @Step("Create a new test case entering the case title: '{testCase.title}', the description: '{testCase.description}' " +
+            "into the input fields and " +
             "attach the '{fileName}' file")
-    public ProjectRepositoryPage createTestSuiteFillingInSomeFieldsAndAttachingFile(TestCase testCase, String fileName) {
+    public ProjectRepositoryPage createTestcaseFillingInSomeFieldsAndAttachingFile(TestCase testCase, String fileName) {
         Waiters.waitForElementLocated(driver, saveBtn, 5);
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(testCase.getDescription());

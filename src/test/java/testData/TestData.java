@@ -19,4 +19,5 @@ public interface TestData {
     String TEST_PLAN_TITLE = "Smoke";
     String TEST_PLAN_DESCRIPTION = "Test plan description for the project";
     String SUITE_NAME_FOR_TEST_PLAN = "Test cases without suite";
+    String ATTACHING_FILE = "TestCase.txt";
 }

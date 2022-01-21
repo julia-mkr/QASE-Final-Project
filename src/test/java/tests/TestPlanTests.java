@@ -1,11 +1,13 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestPlanTests extends BaseTest {
 
     @Test(groups = "Smoke", description = "The test creates a test plan filling in all the fields and adding test cases to it")
+    @Description("Creation of a new test plan with filling in all the fields and adding of a suite of test cases")
     public void createTestPlanFillingInAllFieldsAndAddingTests() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)

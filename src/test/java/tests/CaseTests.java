@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.TestCaseData;
@@ -7,6 +8,7 @@ import testData.TestCaseData;
 public class CaseTests extends BaseTest implements TestCaseData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields")
+    @Description("Creation of a new test case with filling in only the required fields")
     public void createTestCaseFillingInRequiredFieldsTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
@@ -18,6 +20,8 @@ public class CaseTests extends BaseTest implements TestCaseData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and " +
             "selecting value options from some dropdown menus")
+    @Description("Creation of a new test case with filling in the required fields and selecting values from from the 'Suite', " +
+            "'Priority', 'Type', 'Layer', and 'Automation status' dropdowns")
     public void createTestCaseFillingInRequiredFieldsAndSelectingValuesFromDropdownMenuTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
@@ -29,17 +33,20 @@ public class CaseTests extends BaseTest implements TestCaseData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and attaching a file" +
             "to it")
+    @Description("Creation of a new test case with filling in the required fields and attaching a file to it")
     public void createTestCaseFillingInRequiredFieldsAndAttachingFileTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateCaseButton()
-                .createTestSuiteFillingInSomeFieldsAndAttachingFile(DATA_FOR_TEST_CASE_3, "TestCase.txt")
+                .createTestcaseFillingInSomeFieldsAndAttachingFile(DATA_FOR_TEST_CASE_3, ATTACHING_FILE)
                 .clickOnTestCase(DATA_FOR_TEST_CASE_3.getTitle());
         Assert.assertTrue(createTestCasePage.isEnteredTextDisplayed(DATA_FOR_TEST_CASE_3.getTitle()));
         Assert.assertTrue(createTestCasePage.isEnteredTextDisplayed(DATA_FOR_TEST_CASE_3.getDescription()));
     }
 
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and all the text fields")
+    @Description("Creation of a new test case with filling in all the input fields such as: 'Title', 'Description', 'Pre-conditions', " +
+            "'Post-condition' and adds steps to reproduce")
     public void createTestCaseFillingInInputFieldsTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)

@@ -20,7 +20,8 @@ public class CreateGroupPage extends UserGroupsPage {
     @FindBy(xpath = "//*[contains(@class, 'feedback')]")
     private WebElement emptyDescriptionFieldMessage;
 
-    @Step("Enter the group title: '{groupTitle}' and the description: '{description}'")
+    @Step("Create a group filling in all the fields and entering the group title: " +
+            "'{groupTitle}' and the description: '{description}'")
     public UserGroupsPage createGroupFillingInAllFields(String groupTitle, String description) {
         new InputField(driver, GROUP_TITLE_LABEL).writeTextIntoInputField(groupTitle);
         descriptionField.sendKeys(description);
@@ -28,7 +29,7 @@ public class CreateGroupPage extends UserGroupsPage {
         return new UserGroupsPage (driver);
     }
 
-    @Step("Enter the group title: '{groupTitle}' and the description: '{description}'")
+    @Step("Create a group filling in the group title: '{groupTitle}' and leave the description field blank")
     public CreateGroupPage createGroupFillingInOneOfRequiredFields(String groupTitle, String description) {
         new InputField(driver, GROUP_TITLE_LABEL).writeTextIntoInputField(groupTitle);
         descriptionField.sendKeys(description);
