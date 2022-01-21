@@ -4,11 +4,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import testData.*;
 import ui.pages.*;
 import ui.utils.VerificationUtils;
 
+@Listeners(TestListener.class)
 public class BaseTest implements TestData {
     WebDriver driver;
     ChromeOptions options;
@@ -39,12 +41,14 @@ public class BaseTest implements TestData {
     UploadFileModalPage uploadFileModalPage;
 
     @BeforeMethod
-    public void initTest() {
+    public void initTest(ITestContext context) {
         WebDriverManager.chromedriver().setup();
         options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+        String driverVariable = "driver";
+        context.setAttribute(driverVariable, driver);
         initPages();
     }
 

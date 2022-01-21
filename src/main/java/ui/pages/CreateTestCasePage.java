@@ -1,5 +1,6 @@
 package ui.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,6 +24,7 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
     private static final String SELECTED_OPTION = "//*[text()='%s']//parent::*[contains(@class,'param')]//*[contains(@class,'param-value')]";
     private static final String ENTERED_TEXT = "//*[contains(@class,'preview')]//child::*[text()='%s']";
 
+    @Step("Create a new test case filling in the required fields entering the case title: '{testCase.title}' into the input field")
     public ProjectRepositoryPage createTestCaseFillingInRequiredFields(TestCase testCase) {
         Waiters.waitForElementLocated(driver, saveBtn, 5);
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
@@ -30,6 +32,11 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         return new ProjectRepositoryPage(driver);
     }
 
+    @Step("Create a new test case entering the case title: '{testCase.title}' into the input field and select " +
+            "the 'Suite' value: '{testCase.suite}', " +
+            "the 'Priority' value: '{testCase.priority}', the 'Type' value: '{testCase.type}', " +
+            "the 'Layer' value: '{testCase.layer}', " +
+            "the 'Automation status' value: '{testCase.automationStatus}' from the dropdown menu")
     public ProjectRepositoryPage createTestCaseFillingInRequiredFieldsAndSelectingOptionsFromDropdowns(TestCase testCase) {
         Waiters.waitForElementLocated(driver, saveBtn, 5);
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
@@ -42,6 +49,10 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         return new ProjectRepositoryPage(driver);
     }
 
+    @Step("Create a new test case entering the case title: '{testCase.title}', the description: '{testCase.description}', " +
+            "the preconditions: '{testCase.preConditions}', the post-conditions: '{testCase.postConditions}'," +
+            " the action: '{testCase.action}', the input data: '{testCase.inputData}', and the expected result: " +
+            "'{testCase.expectedResult}' into the input fields")
     public ProjectRepositoryPage createTestCaseFillingInInputFields(TestCase testCase) {
         Waiters.waitForElementLocated(driver, saveBtn, 5);
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
@@ -56,7 +67,10 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         return new ProjectRepositoryPage(driver);
     }
 
-    public ProjectRepositoryPage createTestSuiteFillingInSomeFieldsAndAttachingFile(TestCase testCase, String fileName) {
+    @Step("Create a new test case entering the case title: '{testCase.title}', the description: '{testCase.description}' " +
+            "into the input fields and " +
+            "attach the '{fileName}' file")
+    public ProjectRepositoryPage createTestcaseFillingInSomeFieldsAndAttachingFile(TestCase testCase, String fileName) {
         Waiters.waitForElementLocated(driver, saveBtn, 5);
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(testCase.getDescription());
@@ -66,24 +80,29 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         return new ProjectRepositoryPage(driver);
     }
 
+    @Step("Click on the 'Save' button")
     public void clickOnSaveButton() {
         saveBtn.click();
     }
 
+    @Step("Click on the 'Add attachment' button")
     public void clickOnAddAttachmentButton() {
         Waiters.waitForElementLocated(driver, addAttachmentBtn, 5);
         jsClick(addAttachmentBtn);
     }
 
+    @Step("Click on the 'Add step' button")
     public void clickOnAddStepButton() {
         Waiters.waitForElementLocated(driver, addStepBtn, 5);
         jsClick(addStepBtn);
     }
 
+    @Step("Verify, that selected option: '{label}' is displayed")
     public boolean isOptionDisplayed(String label) {
         return driver.findElement(By.xpath(String.format(SELECTED_OPTION, label))).isDisplayed();
     }
 
+    @Step("Verify, that entered text: '{text}' is displayed")
     public boolean isEnteredTextDisplayed(String text) {
         return driver.findElement(By.xpath(String.format(ENTERED_TEXT, text))).isDisplayed();
     }

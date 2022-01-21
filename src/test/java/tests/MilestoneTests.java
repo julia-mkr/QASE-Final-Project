@@ -1,16 +1,16 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.MilestoneTestData;
-import ui.utils.PropertyReader;
 
 public class MilestoneTests extends BaseTest implements MilestoneTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a milestone filling in the required fields")
+    @Description("Creation of a new milestone with filling in only the required fields")
     public void createMilestoneFillingInRequiredFieldsTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
-                        System.getProperty("password", PropertyReader.getProperty("password")))
+        loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
                 .clickOnMilestonesSubMenuOption()
                 .clickOnCreateMilestoneButton()
@@ -19,9 +19,9 @@ public class MilestoneTests extends BaseTest implements MilestoneTestData {
     }
 
     @Test(groups = {"Critical"}, description = "The test creates a milestone filling in all the fields")
+    @Description("Creation of a new milestone with filling in all the fields")
     public void createMilestoneFillingInAllFieldsTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
-                System.getProperty("password", PropertyReader.getProperty("password")))
+        loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
                 .clickOnMilestonesSubMenuOption()
                 .clickOnCreateMilestoneButton()

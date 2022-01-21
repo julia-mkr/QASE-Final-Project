@@ -1,5 +1,6 @@
 package ui.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ public class BasePage implements IConstants {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Opening URL: '{url}'")
     public void openUrl(String url) {
         driver.get(url);
     }

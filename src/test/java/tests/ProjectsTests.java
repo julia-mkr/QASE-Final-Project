@@ -1,14 +1,15 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ui.utils.PropertyReader;
 
 public class ProjectsTests extends BaseTest {
 
-    @Test(groups = {"Smoke"}, description = "The test creates a new public project")
+    @Test(groups = {"Smoke"}, description = "The test creates a new project")
+    @Description("Creation of a new public project with filling all the input fields")
     public void createNewProjectTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
+        loginPage.login(EMAIL, PASSWORD)
                 .clickOnCreateProjectButton()
                 .createNewPublicProject(PROJECT_TITLE_FOR_CREATION, PROJECT_CODE_FOR_CREATION, TEXT_FOR_PROJECT_DESCRIPTION_FIELD);
         Assert.assertTrue(projectRepositoryPage.isImageOnProjectRepositoryDisplayed());
@@ -16,8 +17,9 @@ public class ProjectsTests extends BaseTest {
     }
 
     @Test(groups = {"Smoke"}, description = "The test deletes a created project")
+    @Description("Deletion of the project")
     public void deleteProjectTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")), System.getProperty("password", PropertyReader.getProperty("password")))
+        loginPage.login(EMAIL, PASSWORD)
                 .clickOnCreateProjectButton()
                 .createNewPublicProject(PROJECT_TITLE_FOR_DELETION, PROJECT_CODE_FOR_DELETION, TEXT_FOR_PROJECT_DESCRIPTION_FIELD);
         navigationMenuPage.clickOnProjectNavigationTab()

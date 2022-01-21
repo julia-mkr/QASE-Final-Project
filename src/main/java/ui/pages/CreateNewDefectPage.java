@@ -1,5 +1,7 @@
 package ui.pages;
 
+import io.qameta.allure.Step;
+import org.checkerframework.common.value.qual.StringVal;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +21,7 @@ public class CreateNewDefectPage extends DefectsPage {
     private WebElement addAttachmentBtn;
 
 
+    @Step("Create a new defect entering the defect title: '{defect.defectTitle}' and the actual result: '{defect.actualResult}'")
     public DefectsPage createNewDefectFillingInRequiredFields(Defect defect) {
         Waiters.waitForElementLocated(driver, createDefectButton, 5);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
@@ -27,6 +30,9 @@ public class CreateNewDefectPage extends DefectsPage {
         return new DefectsPage(driver);
     }
 
+    @Step("Create a new defect entering the defect title: '{defect.defectTitle}' and the actual result: '{defect.actualResult}'" +
+            " and select the 'Milestone' value: '{defect.milestones}', the 'Severity' value: '{defect.severity}', and " +
+            "the 'Assignee' name: '{defect.assignee}'")
     public DefectsPage createNewDefectFillingInAllFields(Defect defect) {
         Waiters.waitForElementLocated(driver, createDefectButton, 5);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
@@ -38,6 +44,8 @@ public class CreateNewDefectPage extends DefectsPage {
         return new DefectsPage(driver);
     }
 
+    @Step("Create a new defect entering the defect title: '{defect.defectTitle}', the actual result: '{defect.actualResult}'" +
+            " and attach the '{filename}' file")
     public DefectsPage createNewDefectFillingInRequiredFieldsAndAttachingFile(Defect defect, String fileName) {
         Waiters.waitForElementLocated(driver, createDefectButton, 5);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
@@ -48,6 +56,8 @@ public class CreateNewDefectPage extends DefectsPage {
         return new DefectsPage(driver);
     }
 
+    @Step("Create a new defect entering the defect title: '{defect.defectTitle}', the actual result: '{defect.actualResult}' " +
+            "and select the 'Severity' value: '{defect.severity}'")
     public DefectsPage createNewDefectFillingInRequiredFieldsAndSelectingSeverity(Defect defect) {
         Waiters.waitForElementLocated(driver, createDefectButton, 5);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
@@ -57,14 +67,17 @@ public class CreateNewDefectPage extends DefectsPage {
         return new DefectsPage(driver);
     }
 
+    @Step("Click on the 'Create defect' button")
     public void clickOnCreateDefectButton() {
         createDefectButton.click();
     }
 
+    @Step("Click on the 'Create defect' button using JS")
     public void clickOnCreateDefectButtonWithJs() {
         jsClick(createDefectButton);
     }
 
+    @Step("Click on the 'Add attachment' button")
     public void clickOnAddAttachmentButton() {
         jsClick(addAttachmentBtn);
     }

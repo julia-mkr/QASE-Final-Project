@@ -1,22 +1,22 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ui.utils.PropertyReader;
 
 public class LoginTests extends BaseTest {
 
-    @Test(groups = {"Smoke"}, description = "The test logs into the website using valid email and password")
+    @Test(groups = {"Smoke"}, description = "The test logs in to the website using valid email and password")
+    @Description("Login to the 'qase.io' website using a valid email and password")
     public void loginUsingValidDataTest() {
-        loginPage.login(System.getProperty("email", PropertyReader.getProperty("email")),
-                System.getProperty("password", PropertyReader.getProperty("password")));
+        loginPage.login(EMAIL, PASSWORD);
         Assert.assertTrue(projectsPage.isCreateProjectButtonDisplayed());
     }
 
-    @Test(groups = {"Critical"}, description = "The test logs into the website using an invalid email")
+    @Test(groups = {"Critical"}, description = "The test logs in to the website using an invalid email")
+    @Description("Login to the 'qase.io' website using a invalid email")
     public void loginUsingInvalidEmailTest() {
-        loginPage.login(System.getProperty("invalidEmail", PropertyReader.getProperty("invalidEmail")),
-                System.getProperty("password", PropertyReader.getProperty("password")));
+        loginPage.login(INVALID_EMAIL, PASSWORD);
         Assert.assertEquals(loginPage.getErrorMessage(), EXPECTED_LOGIN_ERROR_MESSAGE);
     }
  }

@@ -3,6 +3,7 @@ package api.adapters;
 import api.constants.IConstants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import io.qameta.allure.Step;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -32,6 +33,7 @@ public class BaseAdapter implements IConstants {
             .addHeader("Token", TOKEN)
             .build();
 
+    @Step("Send a 'GET' request to the '{url}' endpoint")
     public Response get(String url) {
         return given()
                 .spec(REQ_SPEC)
@@ -42,6 +44,7 @@ public class BaseAdapter implements IConstants {
                 .extract().response();
     }
 
+    @Step("Send a 'POST' request to the '{url}' endpoint")
     public Response post(String url, String body) {
         return given()
                 .spec(REQ_SPEC)
@@ -53,6 +56,7 @@ public class BaseAdapter implements IConstants {
                 .extract().response();
     }
 
+    @Step("Send a 'POST' request to the '{url}' endpoint and attach the '{fileName}' file")
     public Response postAttachment(String url, String fileName) {
         File file = new File(String.format("src/test/resources/%s", fileName));
         return given()
@@ -66,6 +70,7 @@ public class BaseAdapter implements IConstants {
                 .extract().response();
     }
 
+    @Step("Send a 'PATCH' request to the '{url}' endpoint")
     public Response patch(String url, String body) {
         return given()
                 .spec(REQ_SPEC)
@@ -77,6 +82,7 @@ public class BaseAdapter implements IConstants {
                 .extract().response();
     }
 
+    @Step("Send a 'PATCH' request to the '{url}' endpoint")
     public Response patch(String url) {
         return given()
                 .spec(REQ_SPEC)

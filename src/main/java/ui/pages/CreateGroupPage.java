@@ -1,5 +1,6 @@
 package ui.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,8 @@ public class CreateGroupPage extends UserGroupsPage {
     @FindBy(xpath = "//*[contains(@class, 'feedback')]")
     private WebElement emptyDescriptionFieldMessage;
 
+    @Step("Create a group filling in all the fields and entering the group title: " +
+            "'{groupTitle}' and the description: '{description}'")
     public UserGroupsPage createGroupFillingInAllFields(String groupTitle, String description) {
         new InputField(driver, GROUP_TITLE_LABEL).writeTextIntoInputField(groupTitle);
         descriptionField.sendKeys(description);
@@ -26,6 +29,7 @@ public class CreateGroupPage extends UserGroupsPage {
         return new UserGroupsPage (driver);
     }
 
+    @Step("Create a group filling in the group title: '{groupTitle}' and leave the description field blank")
     public CreateGroupPage createGroupFillingInOneOfRequiredFields(String groupTitle, String description) {
         new InputField(driver, GROUP_TITLE_LABEL).writeTextIntoInputField(groupTitle);
         descriptionField.sendKeys(description);
@@ -33,6 +37,7 @@ public class CreateGroupPage extends UserGroupsPage {
         return this;
     }
 
+    @Step("Click on the 'Create' button")
     public void clickOnCreateButton() {
         createBtn.click();
     }
