@@ -1,6 +1,7 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,7 @@ import ui.utils.Waiters;
 
 import java.util.List;
 
+@Log4j2
 public class ProjectRepositoryPage extends ProjectsPage {
 
     public ProjectRepositoryPage(WebDriver driver) {
@@ -29,16 +31,20 @@ public class ProjectRepositoryPage extends ProjectsPage {
     @FindBy(xpath = "//*[contains(@class,'no-project')]")
     private WebElement emptyProjectRepositoryText;
 
-    private static final String TEST_CASE_TITLE = "//*[text()='%s' and contains(@class,'caseTitle')]";
+    private static final String TEST_CASE_TITLE = "//*[text()='%s' and contains(@class,'title')]";
 
     @Step("Click on the 'Create Suite' button")
     public CreateSuiteModalPage clickOnCreateSuiteButton() {
+        Waiters.waitForElementLocated(driver, createSuiteBtn, 5);
+        log.info("Clicking on the 'Create Suite' button on the 'Project Repository' page");
         createSuiteBtn.click();
         return new CreateSuiteModalPage(driver);
     }
 
     @Step("Click on the 'Create Case' button")
     public CreateTestCasePage clickOnCreateCaseButton() {
+        Waiters.waitForElementLocated(driver, createTestBtn, 5);
+        log.info("Clicking on the 'Create Case' button on the 'Project Repository' page");
         createTestBtn.click();
         return new CreateTestCasePage(driver);
     }
@@ -64,6 +70,7 @@ public class ProjectRepositoryPage extends ProjectsPage {
     @Step("Click on the '{testCaseTitle}' title")
     public ProjectRepositoryPage clickOnTestCase(String testCaseTitle) {
         Waiters.waitForElementLocated(driver, createSuiteBtn, 5);
+        log.info("Clicking on the " + testCaseTitle + " title");
         driver.findElement(By.xpath(String.format(TEST_CASE_TITLE, testCaseTitle))).click();
         Waiters.waitForElementLocated(driver, deleteCaseBtn, 5);
         return this;

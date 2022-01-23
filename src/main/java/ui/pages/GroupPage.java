@@ -1,12 +1,14 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.utils.Waiters;
 
+@Log4j2
 public class GroupPage extends UserGroupsPage {
 
     public GroupPage(WebDriver driver) {
@@ -19,6 +21,7 @@ public class GroupPage extends UserGroupsPage {
 
     @Step("Click on the 'Add member' button")
     public AddMemberToGroupModalPage clickOnAddMemberButton() {
+        log.info("Clicking on 'Add member' button on the 'Group' page");
         addMemberButton.click();
         return new AddMemberToGroupModalPage(driver);
     }

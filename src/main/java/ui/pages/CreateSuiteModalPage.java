@@ -1,6 +1,7 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import ui.elements.InputField;
 import ui.elements.TextField;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.objects.TestSuite;
 
+@Log4j2
 public class CreateSuiteModalPage extends ProjectRepositoryPage {
 
     public CreateSuiteModalPage(WebDriver driver) {
@@ -36,6 +38,7 @@ public class CreateSuiteModalPage extends ProjectRepositoryPage {
 
     @Step("Click on the 'Create' button")
     public void clickOnCreateButton() {
+        log.info("Clicking on the 'Create' button");
         createBtn.click();
     }
 }

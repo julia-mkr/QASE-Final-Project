@@ -1,12 +1,14 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.utils.Waiters;
 
+@Log4j2
 public class DefectPage extends DefectsPage {
 
     public DefectPage(WebDriver driver) {
@@ -51,6 +53,7 @@ public class DefectPage extends DefectsPage {
     @Step("Mark the defect as 'In progress'")
     public void markDefectAsInProgress() {
         Waiters.waitForElementLocated(driver, inProgressBtn, 5);
+        log.info("Clicking on the 'In progress' button");
         inProgressBtn.click();
         clickOnConfirmButton();
     }
@@ -58,12 +61,14 @@ public class DefectPage extends DefectsPage {
     @Step("Mark the defect as 'Resolved'")
     public void markDefectAsResolved() {
         Waiters.waitForElementLocated(driver, resolveBtn, 10);
+        log.info("Clicking on the 'Resolve' button");
         resolveBtn.click();
         clickOnConfirmButton();
     }
 
     @Step("Click on the 'Confirm' button")
     public void clickOnConfirmButton() {
+        log.info("Clicking on the 'Confirm' button");
         confirmBtn.click();
     }
 

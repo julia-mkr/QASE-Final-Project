@@ -10,8 +10,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields")
     @Description("Creation of a new test case with filling in only the required fields")
     public void createTestCaseFillingInRequiredFieldsTest() {
-        loginPage.login(EMAIL, PASSWORD)
-                .clickOnProject(PROJECT_TITLE)
+        projectRepositorySteps.loginAndClickOnProject(driver,EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInRequiredFields(DATA_FOR_TEST_CASE_1)
                 .clickOnTestCase(DATA_FOR_TEST_CASE_1.getTitle());

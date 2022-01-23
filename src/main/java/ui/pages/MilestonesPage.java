@@ -1,12 +1,14 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.utils.Waiters;
 
+@Log4j2
 public class MilestonesPage extends ProjectRepositoryPage {
 
     public MilestonesPage(WebDriver driver) {
@@ -22,6 +24,7 @@ public class MilestonesPage extends ProjectRepositoryPage {
     @Step("Click on the 'Create milestone' button")
     public CreateMilestonePage clickOnCreateMilestoneButton() {
         Waiters.waitForElementLocated(driver, createMilestoneBtn, 5);
+        log.info("Clicking on the 'Create milestone' button on the 'Milestones' page");
         createMilestoneBtn.click();
         return new CreateMilestonePage(driver);
     }

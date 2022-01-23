@@ -4,10 +4,15 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import testData.*;
 import ui.pages.*;
+import ui.steps.ProjectRepositorySteps;
 import ui.utils.VerificationUtils;
 
 @Listeners(TestListener.class)
@@ -39,17 +44,34 @@ public class BaseTest implements TestData {
     TestPlansPage testPlansPage;
     CreateTestPlanPage createTestPlanPage;
     UploadFileModalPage uploadFileModalPage;
+    ProjectRepositorySteps projectRepositorySteps;
 
     @BeforeMethod
     public void initTest(ITestContext context) {
-        WebDriverManager.chromedriver().setup();
-        options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        initBrowser();
         String driverVariable = "driver";
         context.setAttribute(driverVariable, driver);
         initPages();
+    }
+
+    public void initBrowser() {
+        if (System.getProperty("browser").equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("--disable-notifications");
+            driver = new FirefoxDriver(options);
+        } else if (System.getProperty("browser").equals("edge")) {
+            WebDriverManager.edgedriver().setup();
+            EdgeOptions options = new EdgeOptions();
+            options.addArguments("--disable-notifications");
+            driver = new EdgeDriver();
+        } else {
+            WebDriverManager.chromedriver().setup();
+            options = new ChromeOptions();
+            options.addArguments("--disable-notifications");
+            driver = new ChromeDriver(options);
+        }
+        driver.manage().window().maximize();
     }
 
     public void initPages() {
@@ -78,6 +100,7 @@ public class BaseTest implements TestData {
         testPlansPage = new TestPlansPage(driver);
         createTestPlanPage = new CreateTestPlanPage(driver);
         uploadFileModalPage = new UploadFileModalPage(driver);
+        projectRepositorySteps = new ProjectRepositorySteps(driver);
     }
 
     @AfterMethod(alwaysRun = true)

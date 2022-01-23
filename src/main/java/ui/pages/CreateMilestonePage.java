@@ -1,12 +1,14 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.elements.*;
 import ui.objects.Milestone;
 
+@Log4j2
 public class CreateMilestonePage extends MilestonesPage {
 
     public CreateMilestonePage(WebDriver driver) {
@@ -21,7 +23,7 @@ public class CreateMilestonePage extends MilestonesPage {
     public MilestonesPage createMilestoneFillingInRequiredFields(Milestone milestone) {
         new InputField(driver, MILESTONE_NAME_LABEL).writeTextIntoInputField(milestone.getMilestoneName());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(milestone.getDescription());
-        clickOnSaveMilestoneButton();
+        clickOnCreateMilestoneBtn();
         return new MilestonesPage(driver);
     }
 
@@ -33,12 +35,13 @@ public class CreateMilestonePage extends MilestonesPage {
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(milestone.getDescription());
         new DropDown(driver, STATUS_LABEL).selectOption(milestone.getStatus());
         new InputField(driver, DUE_DATE_LABEL).writeTextIntoInputField(milestone.getDueDate());
-        clickOnSaveMilestoneButton();
+        clickOnCreateMilestoneBtn();
         return new MilestonesPage(driver);
     }
 
-    @Step("Click on the 'Save milestone' button")
-    public void clickOnSaveMilestoneButton() {
+    @Step("Click on the 'Create milestone' button")
+    public void clickOnCreateMilestoneBtn() {
+        log.info("Clicking on the 'Create milestone' button");
         createMilestoneBtn.click();
     }
 }

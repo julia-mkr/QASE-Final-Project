@@ -1,8 +1,10 @@
 package ui.elements;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class DropDown {
 
     WebDriver driver;
@@ -18,6 +20,7 @@ public class DropDown {
 
     public void selectOption(String optionText) {
         driver.findElement(By.xpath(String.format(DROPDOWN, dropdownLabel))).click();
+        log.info(String.format("Selecting '%s' option from '%s' dropdown", optionText, dropdownLabel));
         driver.findElement(By.xpath(String.format(OPTION, optionText))).click();
     }
 }

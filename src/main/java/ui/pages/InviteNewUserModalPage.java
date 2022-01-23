@@ -1,6 +1,7 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +9,7 @@ import ui.elements.InputField;
 import ui.objects.InvitationOfNewUser;
 import ui.utils.Waiters;
 
+@Log4j2
 public class InviteNewUserModalPage extends InvitesPage {
 
     public InviteNewUserModalPage(WebDriver driver) {
@@ -60,6 +62,7 @@ public class InviteNewUserModalPage extends InvitesPage {
 
     @Step("Click in the 'Invite' button")
     public void clickOnInviteButton() {
+        log.info("Clicking on the 'Invite' button");
         inviteBtn.click();
     }
 }

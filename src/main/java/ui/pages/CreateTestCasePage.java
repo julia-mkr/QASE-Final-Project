@@ -1,6 +1,7 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,7 @@ import ui.elements.*;
 import ui.objects.TestCase;
 import ui.utils.Waiters;
 
+@Log4j2
 public class CreateTestCasePage extends ProjectRepositoryPage {
 
     public CreateTestCasePage(WebDriver driver) {
@@ -82,18 +84,21 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
 
     @Step("Click on the 'Save' button")
     public void clickOnSaveButton() {
+        log.info("Clicking on the 'Save' button");
         saveBtn.click();
     }
 
     @Step("Click on the 'Add attachment' button")
     public void clickOnAddAttachmentButton() {
         Waiters.waitForElementLocated(driver, addAttachmentBtn, 5);
+        log.info("Clicking on the 'Add attachment' button with JS");
         jsClick(addAttachmentBtn);
     }
 
     @Step("Click on the 'Add step' button")
     public void clickOnAddStepButton() {
         Waiters.waitForElementLocated(driver, addStepBtn, 5);
+        log.info("Clicking on the 'Add step' button with JS");
         jsClick(addStepBtn);
     }
 
@@ -104,6 +109,7 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
 
     @Step("Verify, that entered text: '{text}' is displayed")
     public boolean isEnteredTextDisplayed(String text) {
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(ENTERED_TEXT, text)), 5);
         return driver.findElement(By.xpath(String.format(ENTERED_TEXT, text))).isDisplayed();
     }
 }
