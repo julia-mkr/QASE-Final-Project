@@ -1,6 +1,7 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,7 @@ import ui.elements.InputField;
 import ui.elements.TextField;
 import ui.utils.Waiters;
 
+@Log4j2
 public class CreateTestPlanPage extends TestPlansPage {
 
     public CreateTestPlanPage(WebDriver driver) {
@@ -35,23 +37,27 @@ public class CreateTestPlanPage extends TestPlansPage {
 
     @Step("Click on the 'Create plan' button")
     public void clickOnCreatePlanButton() {
+        log.info("Clicking on the 'Create plan' button");
         createPlanBtn.click();
     }
 
     @Step("Click on the 'Add cases' button")
     public void clickOnAddCasesButton() {
+        log.info("Clicking on the 'Add cases' button");
         addCasesBtn.click();
     }
 
     @Step("Select the suite: '{suiteName}'")
     public void selectSuite(String suiteName) {
         Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(SUITE_CHECKBOX, suiteName)), 5);
+        log.info("Selecting the " + suiteName + " suite");
         driver.findElement(By.xpath(String.format(SUITE_CHECKBOX, suiteName))).click();
         clickOnDoneButton();
     }
 
     @Step("Click on the 'Done' button")
     public void clickOnDoneButton() {
+        log.info("Clicking on the 'Done' button");
         doneBtn.click();
     }
 }

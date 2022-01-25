@@ -13,7 +13,7 @@ public class UploadAttachmentTests implements ApiConstants {
     @Test(groups = "Smoke", description = "The test uploads a file using API")
     @Description("Uploading of a file through API")
     public void uploadFileTest() {
-        String hash = uploadAttachmentAdapter.uploadAttachment(PROJECT_CODE, "TestCase.txt");
+        String hash = uploadAttachmentAdapter.uploadAttachment(PROJECT_CODE, FILE_FOR_UPLOADING);
         Assert.assertTrue(uploadAttachmentAdapter.isAttachmentUploaded(hash));
     }
 }

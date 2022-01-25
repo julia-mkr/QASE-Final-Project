@@ -1,6 +1,7 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.checkerframework.common.value.qual.StringVal;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,7 @@ import ui.elements.*;
 import ui.objects.*;
 import ui.utils.Waiters;
 
+@Log4j2
 public class CreateNewDefectPage extends DefectsPage {
 
     public CreateNewDefectPage(WebDriver driver) {
@@ -69,16 +71,19 @@ public class CreateNewDefectPage extends DefectsPage {
 
     @Step("Click on the 'Create defect' button")
     public void clickOnCreateDefectButton() {
+        log.info("Clicking on the 'Create defect' button");
         createDefectButton.click();
     }
 
     @Step("Click on the 'Create defect' button using JS")
     public void clickOnCreateDefectButtonWithJs() {
+        log.info("Clicking on the 'Create defect' button with JS");
         jsClick(createDefectButton);
     }
 
     @Step("Click on the 'Add attachment' button")
     public void clickOnAddAttachmentButton() {
+        log.info("Clicking on the 'Add attachment' button with JS");
         jsClick(addAttachmentBtn);
     }
 }

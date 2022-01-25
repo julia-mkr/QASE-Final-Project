@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" name="Qase Tests" parallel="classes">
+<suite thread-count="3" name="UI Tests" parallel="classes">
     <test name="tests">
         <classes>
             <class name="tests.LoginTests"/>
@@ -13,10 +13,6 @@
             <class name="tests.GroupsTests"/>
             <class name="tests.InviteNewUserTests"/>
             <class name="tests.QaseTests"/>
-            <class name="tests.apiTests.ApiCaseTests"/>
-            <class name="tests.apiTests.ApiDefectTests"/>
-            <class name="tests.apiTests.ApiPlanTests"/>
-            <class name="tests.apiTests.UploadAttachmentTests"/>
         </classes>
     </test>
 </suite>

@@ -1,12 +1,14 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.elements.InputField;
 import ui.utils.Waiters;
 
+@Log4j2
 public class CreateGroupPage extends UserGroupsPage {
 
     public CreateGroupPage(WebDriver driver) {
@@ -24,6 +26,7 @@ public class CreateGroupPage extends UserGroupsPage {
             "'{groupTitle}' and the description: '{description}'")
     public UserGroupsPage createGroupFillingInAllFields(String groupTitle, String description) {
         new InputField(driver, GROUP_TITLE_LABEL).writeTextIntoInputField(groupTitle);
+        log.info("Typing the group description " + description + " into the 'Description' field");
         descriptionField.sendKeys(description);
         clickOnCreateButton();
         return new UserGroupsPage (driver);
@@ -32,6 +35,7 @@ public class CreateGroupPage extends UserGroupsPage {
     @Step("Create a group filling in the group title: '{groupTitle}' and leave the description field blank")
     public CreateGroupPage createGroupFillingInOneOfRequiredFields(String groupTitle, String description) {
         new InputField(driver, GROUP_TITLE_LABEL).writeTextIntoInputField(groupTitle);
+        log.info("Typing the group description " + description + " into the 'Description' field");
         descriptionField.sendKeys(description);
         clickOnCreateButton();
         return this;
@@ -39,6 +43,7 @@ public class CreateGroupPage extends UserGroupsPage {
 
     @Step("Click on the 'Create' button")
     public void clickOnCreateButton() {
+        log.info("Clicking on the 'Create' button");
         createBtn.click();
     }
 

@@ -1,8 +1,10 @@
 package ui.elements;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class UserMenuDropdown {
 
     WebDriver driver;
@@ -16,6 +18,7 @@ public class UserMenuDropdown {
     private static final String MENU_OPTION = "//*[@class='user-menu-item']//*[contains(text(), '%s')]";
 
     public void clickOnOption() {
+        log.info(String.format("Clicking on the '%s' option", userMenuOption));
         driver.findElement(By.xpath(String.format(MENU_OPTION, userMenuOption))).click();
     }
 }
