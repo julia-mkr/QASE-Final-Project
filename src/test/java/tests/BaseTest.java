@@ -48,12 +48,7 @@ public class BaseTest implements TestData {
 
     @BeforeMethod
     public void initTest(ITestContext context) {
-        WebDriverManager.chromedriver().setup();
-        options = new ChromeOptions();
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        options.addArguments("--disable-notifications");
-//        initBrowser();
+        initBrowser();
         String driverVariable = "driver";
         context.setAttribute(driverVariable, driver);
         initPages();
