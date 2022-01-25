@@ -33,5 +33,4 @@ public interface IConstants {
     String DEFECTS_SUB_MENU_LABEL = "Defects";
     String MILESTONES_SUB_MENU_LABEL = "Milestones";
     String TEST_PLANS_SUB_MENU_LABEL = "Test Plans";
-
 }

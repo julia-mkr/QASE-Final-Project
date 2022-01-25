@@ -9,8 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import ui.elements.SubMenu;
 import ui.utils.Waiters;
 
-import java.util.List;
-
 @Log4j2
 public class ProjectRepositoryPage extends ProjectsPage {
 
@@ -24,13 +22,12 @@ public class ProjectRepositoryPage extends ProjectsPage {
     private WebElement createTestBtn;
     @FindBy(xpath = "//button[@title='Delete case']")
     private WebElement deleteCaseBtn;
-    @FindBy(xpath = "//span[contains(@class,'titleText')]")
-    private List<WebElement> suiteTitles;
     @FindBy(xpath = "//*[contains(@alt,'No suites')]")
     private WebElement imageOnProjectRepository;
     @FindBy(xpath = "//*[contains(@class,'no-project')]")
     private WebElement emptyProjectRepositoryText;
 
+    private static final String SUITE_TITLE = "//h3[contains(@class, 'title')]//*[text()='%s']";
     private static final String TEST_CASE_TITLE = "//*[text()='%s' and contains(@class,'title')]";
 
     @Step("Click on the 'Create Suite' button")
@@ -86,11 +83,7 @@ public class ProjectRepositoryPage extends ProjectsPage {
 
     @Step("Verify, that the created '{suiteName}' suite is displayed on the 'Project Repository' page")
     public boolean isCreatedSuiteDisplayed(String suiteName) {
-        Waiters.waitForElementsBecomeVisible(driver, suiteTitles, 5);
-        for(WebElement element : suiteTitles) {
-            if (element.getText().contains(suiteName)) {
-                return true;
-            }
-        }  return false;
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(SUITE_TITLE, suiteName)), 5);
+        return driver.findElement(By.xpath(String.format(SUITE_TITLE, suiteName))).isDisplayed();
     }
 }

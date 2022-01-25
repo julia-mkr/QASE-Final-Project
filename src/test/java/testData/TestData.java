@@ -4,9 +4,9 @@ import ui.utils.PropertyReader;
 
 public interface TestData {
 
-    String EMAIL = System.getProperty("email", PropertyReader.getProperty("email"));
-    String PASSWORD = System.getProperty("password", PropertyReader.getProperty("password"));
-    String INVALID_EMAIL = System.getProperty("invalidEmail", PropertyReader.getProperty("invalidEmail"));
+    String EMAIL = System.getenv().getOrDefault("email", PropertyReader.getProperty("email"));
+    String PASSWORD = System.getenv().getOrDefault("password", PropertyReader.getProperty("password"));
+    String INVALID_EMAIL = System.getenv().getOrDefault("invalidEmail", PropertyReader.getProperty("invalidEmail"));
     String EXPECTED_LOGIN_ERROR_MESSAGE = "These credentials do not match our records.";
     String EXPECTED_EMPTY_REPOSITORY_TEXT = "Looks like you don’t have any suites and cases yet.";
     String TEXT_FOR_PROJECT_DESCRIPTION_FIELD = "Some description for this project";
@@ -19,5 +19,5 @@ public interface TestData {
     String TEST_PLAN_TITLE = "Smoke";
     String TEST_PLAN_DESCRIPTION = "Test plan description for the project";
     String SUITE_NAME_FOR_TEST_PLAN = "Test cases without suite";
-    String ATTACHING_FILE = "TestCase.txt";
+    String ATTACHING_FILE = "FileForUploading.txt";
 }

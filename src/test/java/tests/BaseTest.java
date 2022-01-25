@@ -48,7 +48,12 @@ public class BaseTest implements TestData {
 
     @BeforeMethod
     public void initTest(ITestContext context) {
-        initBrowser();
+        WebDriverManager.chromedriver().setup();
+        options = new ChromeOptions();
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        options.addArguments("--disable-notifications");
+//        initBrowser();
         String driverVariable = "driver";
         context.setAttribute(driverVariable, driver);
         initPages();
@@ -58,20 +63,18 @@ public class BaseTest implements TestData {
         if (System.getProperty("browser").equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
-            options.addArguments("--disable-notifications");
             driver = new FirefoxDriver(options);
         } else if (System.getProperty("browser").equals("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions options = new EdgeOptions();
-            options.addArguments("--disable-notifications");
-            driver = new EdgeDriver();
+            driver = new EdgeDriver(options);
         } else {
             WebDriverManager.chromedriver().setup();
             options = new ChromeOptions();
-            options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
         }
         driver.manage().window().maximize();
+        options.addArguments("--disable-notifications");
     }
 
     public void initPages() {
