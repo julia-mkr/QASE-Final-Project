@@ -25,6 +25,7 @@ public class CreateGroupPage extends UserGroupsPage {
     @Step("Create a group filling in all the fields and entering the group title: " +
             "'{groupTitle}' and the description: '{description}'")
     public UserGroupsPage createGroupFillingInAllFields(String groupTitle, String description) {
+        Waiters.waitForElementLocated(driver, createBtn, 5);
         new InputField(driver, GROUP_TITLE_LABEL).writeTextIntoInputField(groupTitle);
         log.info("Typing the group description " + description + " into the 'Description' field");
         descriptionField.sendKeys(description);

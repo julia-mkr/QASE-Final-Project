@@ -74,10 +74,12 @@ public class ProjectRepositoryPage extends ProjectsPage {
     }
 
     public boolean isImageOnProjectRepositoryDisplayed() {
+        Waiters.waitForElementLocated(driver, imageOnProjectRepository, 5);
         return imageOnProjectRepository.isDisplayed();
     }
 
     public String getTextThatProjectRepositoryIsEmpty() {
+        Waiters.waitForElementLocated(driver, emptyProjectRepositoryText, 5);
         return emptyProjectRepositoryText.getText();
     }
 
