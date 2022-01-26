@@ -10,7 +10,8 @@ public class SuiteTests extends BaseTest implements TestSuiteData {
     @Test(groups = {"Smoke"}, description = "The test creates a test suite filling in the required fields")
     @Description("Creation of a new test suite with filling in only the required fields")
     public void createSuiteFillingInRequiredFieldsTest() {
-        projectRepositorySteps.loginAndClickOnProject(driver,EMAIL, PASSWORD, PROJECT_TITLE)
+        loginPage.login(EMAIL, PASSWORD)
+                .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateSuiteButton()
                 .createSuiteFillingInRequiredFields(DATA_FOR_TEST_SUITE_1);
         Assert.assertTrue(projectRepositoryPage.isCreatedSuiteDisplayed(DATA_FOR_TEST_SUITE_1.getSuiteName()));

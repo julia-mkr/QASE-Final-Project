@@ -2,6 +2,7 @@ package ui.pages;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import ui.elements.ProjectsDropdown;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +23,8 @@ public class ProjectsPage extends BasePage{
     @FindBy(css = ".defect-title")
     private List<WebElement> projectTitles;
 
+    private static final String PROJECT_TITLE = "//*[text()='%s' and @class='defect-title']";
+
     @Step("Click on the 'Create Project' button")
     public NewProjectPage clickOnCreateProjectButton() {
         log.info("Clicking on the 'Create Project' button");
@@ -33,9 +36,7 @@ public class ProjectsPage extends BasePage{
     public ProjectRepositoryPage clickOnProject(String projectName) {
         Waiters.waitForElementsBecomeVisible(driver, projectTitles, 5);
         log.info("Clicking on the " + projectName + " project");
-        projectTitles.stream()
-                .filter(title -> title.getText().matches(projectName))
-                .forEach(WebElement::click);
+        driver.findElement(By.xpath(String.format(PROJECT_TITLE, projectName))).click();
         return new ProjectRepositoryPage(driver);
     }
 
