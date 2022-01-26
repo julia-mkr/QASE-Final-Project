@@ -44,6 +44,7 @@ public class CreateTestPlanPage extends TestPlansPage {
 
     @Step("Click on the 'Add cases' button")
     public void clickOnAddCasesButton() {
+        Waiters.waitForElementLocated(driver, addCasesBtn, 5);
         log.info("Clicking on the 'Add cases' button");
         addCasesBtn.click();
     }
@@ -59,6 +60,7 @@ public class CreateTestPlanPage extends TestPlansPage {
     @Step("Click on the 'Done' button")
     public void clickOnDoneButton() {
         log.info("Clicking on the 'Done' button");
+        Waiters.waitForElementLocated(driver, doneBtn, 5);
         doneBtn.click();
     }
 }

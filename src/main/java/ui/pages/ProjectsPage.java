@@ -34,7 +34,7 @@ public class ProjectsPage extends BasePage{
 
     @Step("Click on the project: '{projectName}'")
     public ProjectRepositoryPage clickOnProject(String projectName) {
-        Waiters.waitForElementsBecomeVisible(driver, projectTitles, 5);
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(PROJECT_TITLE, projectName)), 5);
         log.info("Clicking on the " + projectName + " project");
         driver.findElement(By.xpath(String.format(PROJECT_TITLE, projectName))).click();
         return new ProjectRepositoryPage(driver);

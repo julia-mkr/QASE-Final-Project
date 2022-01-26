@@ -10,8 +10,7 @@ public class DefectTests extends BaseTest implements DefectTestData {
     @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields")
     @Description("Creation of a new defect report with filling in the required fields")
     public void createDefectFillingInRequiredFieldsTest() {
-        loginPage.login(EMAIL, PASSWORD)
-                .clickOnProject(PROJECT_TITLE)
+        projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnDefectsSubMenuOption()
                 .clickOnCreateNewDefectButton()
                 .createNewDefectFillingInRequiredFields(DATA_FOR_TEST_DEFECT_1)
@@ -24,8 +23,7 @@ public class DefectTests extends BaseTest implements DefectTestData {
     @Description("Creation of a new defect report with filling in all the fields and selecting values from the 'Milestones', " +
             "'Severity', and 'Assignee' dropdowns")
     public void createDefectFillingInAllFieldsTest() {
-        loginPage.login(EMAIL, PASSWORD)
-                .clickOnProject(PROJECT_TITLE)
+        projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnDefectsSubMenuOption()
                 .clickOnCreateNewDefectButton()
                 .createNewDefectFillingInAllFields(DATA_FOR_TEST_DEFECT_2)
@@ -34,11 +32,10 @@ public class DefectTests extends BaseTest implements DefectTestData {
     }
 
     @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields and attaching a file" +
-            "to it")
+            " to it")
     @Description("Creation of a new defect report with filling in the required fields and attaching a file to it")
     public void createDefectFillingInRequiredFieldsAndAttachingFileTest() {
-        loginPage.login(EMAIL, PASSWORD)
-                .clickOnProject(PROJECT_TITLE)
+        projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnDefectsSubMenuOption()
                 .clickOnCreateNewDefectButton()
                 .createNewDefectFillingInRequiredFieldsAndAttachingFile(DATA_FOR_TEST_DEFECT_3, ATTACHING_FILE)
@@ -49,8 +46,7 @@ public class DefectTests extends BaseTest implements DefectTestData {
     @Test(groups = {"Smoke"}, description = "The test creates a new defect and resolves it")
     @Description("Resolving of the defect")
     public void resolveCreatedDefectTest() {
-        loginPage.login(EMAIL, PASSWORD)
-                .clickOnProject(PROJECT_TITLE)
+        projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnDefectsSubMenuOption()
                 .clickOnCreateNewDefectButton()
                 .createNewDefectFillingInRequiredFieldsAndSelectingSeverity(DATA_FOR_TEST_DEFECT_4)
