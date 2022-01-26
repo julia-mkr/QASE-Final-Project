@@ -6,6 +6,7 @@ import org.checkerframework.common.value.qual.StringVal;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Wait;
 import ui.elements.*;
 import ui.objects.*;
 import ui.utils.Waiters;
@@ -83,6 +84,7 @@ public class CreateNewDefectPage extends DefectsPage {
 
     @Step("Click on the 'Add attachment' button")
     public void clickOnAddAttachmentButton() {
+        Waiters.waitForElementLocated(driver, addAttachmentBtn, 5);
         log.info("Clicking on the 'Add attachment' button with JS");
         jsClick(addAttachmentBtn);
     }

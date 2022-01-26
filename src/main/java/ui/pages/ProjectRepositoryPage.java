@@ -74,7 +74,7 @@ public class ProjectRepositoryPage extends ProjectsPage {
     }
 
     public boolean isImageOnProjectRepositoryDisplayed() {
-        Waiters.waitForElementLocated(driver, imageOnProjectRepository, 5);
+        Waiters.waitForElementLocated(driver, imageOnProjectRepository, 10);
         return imageOnProjectRepository.isDisplayed();
     }
 

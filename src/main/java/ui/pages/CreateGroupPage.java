@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Wait;
 import ui.elements.InputField;
 import ui.utils.Waiters;
 
@@ -35,6 +36,7 @@ public class CreateGroupPage extends UserGroupsPage {
 
     @Step("Create a group filling in the group title: '{groupTitle}' and leave the description field blank")
     public CreateGroupPage createGroupFillingInOneOfRequiredFields(String groupTitle, String description) {
+        Waiters.waitForElementLocated(driver, createBtn, 5);
         new InputField(driver, GROUP_TITLE_LABEL).writeTextIntoInputField(groupTitle);
         log.info("Typing the group description " + description + " into the 'Description' field");
         descriptionField.sendKeys(description);

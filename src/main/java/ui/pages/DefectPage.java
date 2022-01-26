@@ -36,6 +36,7 @@ public class DefectPage extends DefectsPage {
 
     @Step("Verify, that the description text: '{text}' is displayed")
     public boolean isDescriptionTextDisplayed(String text) {
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(DESCRIPTION_TEXT, text)), 5);
         return driver.findElement(By.xpath(String.format(DESCRIPTION_TEXT, text))).isDisplayed();
     }
 
