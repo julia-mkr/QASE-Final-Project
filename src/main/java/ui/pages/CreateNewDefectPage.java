@@ -26,6 +26,7 @@ public class CreateNewDefectPage extends DefectsPage {
 
     @Step("Create a new defect entering the defect title: '{defect.defectTitle}' and the actual result: '{defect.actualResult}'")
     public DefectsPage createNewDefectFillingInRequiredFields(Defect defect) {
+        Waiters.waitForElementLocated(driver, createDefectButton, 5);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
         new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         clickOnCreateDefectButton();
@@ -36,6 +37,7 @@ public class CreateNewDefectPage extends DefectsPage {
             " and select the 'Milestone' value: '{defect.milestones}', the 'Severity' value: '{defect.severity}', and " +
             "the 'Assignee' name: '{defect.assignee}'")
     public DefectsPage createNewDefectFillingInAllFields(Defect defect) {
+        Waiters.waitForElementLocated(driver, createDefectButton, 5);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
         new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         new DropDown(driver, MILESTONE_LABEL).selectOption(defect.getMilestones());
@@ -48,6 +50,7 @@ public class CreateNewDefectPage extends DefectsPage {
     @Step("Create a new defect entering the defect title: '{defect.defectTitle}', the actual result: '{defect.actualResult}'" +
             " and attach the '{filename}' file")
     public DefectsPage createNewDefectFillingInRequiredFieldsAndAttachingFile(Defect defect, String fileName) {
+        Waiters.waitForElementLocated(driver, createDefectButton, 5);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
         new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         clickOnAddAttachmentButton();
@@ -59,6 +62,7 @@ public class CreateNewDefectPage extends DefectsPage {
     @Step("Create a new defect entering the defect title: '{defect.defectTitle}', the actual result: '{defect.actualResult}' " +
             "and select the 'Severity' value: '{defect.severity}'")
     public DefectsPage createNewDefectFillingInRequiredFieldsAndSelectingSeverity(Defect defect) {
+        Waiters.waitForElementLocated(driver, createDefectButton, 5);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
         new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         new DropDown(driver, SEVERITY_LABEL).selectOption(defect.getSeverity());
