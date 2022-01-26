@@ -30,7 +30,7 @@ public class DefectsPage extends ProjectRepositoryPage {
     @Step("Click on the '{defectTitle}' defect title")
     public void clickOnDefectTitle(String defectTitle) {
         Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(DEFECT_TITLE, defectTitle)), 5);
-        log.info("Clicking on the" + defectTitle + " title on the 'Defects' page");
+        log.info("Clicking on the " + defectTitle + " title on the 'Defects' page");
         driver.findElement(By.xpath(String.format(DEFECT_TITLE, defectTitle))).click();
     }
 }

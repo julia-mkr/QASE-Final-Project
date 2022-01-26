@@ -26,7 +26,7 @@ public class BasePage implements IConstants {
     }
 
     public void jsClick(WebElement element) {
-        log.warn("Using of JS click");
+        log.warn("Using a JS click");
         JavascriptExecutor executor  = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", element);
     }
