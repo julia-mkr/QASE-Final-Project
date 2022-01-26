@@ -22,7 +22,6 @@ public class CreateMilestonePage extends MilestonesPage {
     @Step("Create a new milestone filling in the required fields and entering the milestone name: '{milestone.milestoneName}' and " +
             "the description: '{milestone.description}'")
     public MilestonesPage createMilestoneFillingInRequiredFields(Milestone milestone) {
-        Waiters.waitForElementLocated(driver, createMilestoneBtn, 5);
         new InputField(driver, MILESTONE_NAME_LABEL).writeTextIntoInputField(milestone.getMilestoneName());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(milestone.getDescription());
         clickOnCreateMilestoneBtn();
@@ -33,7 +32,6 @@ public class CreateMilestonePage extends MilestonesPage {
             "the description: '{milestone.description}', the due date: '{milestone.dueDate}' and " +
             "select the 'Status' value: '{milestone.status}'")
     public MilestonesPage createMilestoneFillingInAllFields(Milestone milestone) {
-        Waiters.waitForElementLocated(driver, createMilestoneBtn, 5);
         new InputField(driver, MILESTONE_NAME_LABEL).writeTextIntoInputField(milestone.getMilestoneName());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(milestone.getDescription());
         new DropDown(driver, STATUS_LABEL).selectOption(milestone.getStatus());
