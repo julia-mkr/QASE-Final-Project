@@ -62,12 +62,12 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         Waiters.waitForElementLocated(driver, saveBtn, 5);
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(testCase.getDescription());
-        new TextField(driver, PRE_CONDITIONS_LABEL).writeTextIntoTextField(testCase.getPreConditions());
-        new TextField(driver, POST_CONDITIONS_LABEL).writeTextIntoTextField(testCase.getPostConditions());
+        new TextField(driver, PRE_CONDITIONS_LABEL).writeTextIntoTextFieldWithJs(testCase.getPreConditions());
+        new TextField(driver, POST_CONDITIONS_LABEL).writeTextIntoTextFieldWithJs(testCase.getPostConditions());
         clickOnAddStepButton();
-        new TextField(driver, ACTION_LABEL).writeTextIntoTextField(testCase.getAction());
-        new TextField(driver, INPUT_DATA_LABEL).writeTextIntoTextField(testCase.getInputData());
-        new TextField(driver, EXPECTED_RESULT_LABEL).writeTextIntoTextField(testCase.getExpectedResult());
+        new TextField(driver, ACTION_LABEL).writeTextIntoTextFieldWithJs(testCase.getAction());
+        new TextField(driver, INPUT_DATA_LABEL).writeTextIntoTextFieldWithJs(testCase.getInputData());
+        new TextField(driver, EXPECTED_RESULT_LABEL).writeTextIntoTextFieldWithJs(testCase.getExpectedResult());
         clickOnSaveButton();
         return new ProjectRepositoryPage(driver);
     }
