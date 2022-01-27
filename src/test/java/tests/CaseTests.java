@@ -30,7 +30,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
     }
 
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and attaching a file" +
-            "to it")
+            " to it")
     @Description("Creation of a new test case with filling in the required fields and attaching a file to it")
     public void createTestCaseFillingInRequiredFieldsAndAttachingFileTest() {
         projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)

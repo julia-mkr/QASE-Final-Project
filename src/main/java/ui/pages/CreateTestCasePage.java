@@ -104,12 +104,13 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
 
     @Step("Verify, that selected option: '{label}' is displayed")
     public boolean isOptionDisplayed(String label) {
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(SELECTED_OPTION, label)), 10);
         return driver.findElement(By.xpath(String.format(SELECTED_OPTION, label))).isDisplayed();
     }
 
     @Step("Verify, that entered text: '{text}' is displayed")
     public boolean isEnteredTextDisplayed(String text) {
-        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(ENTERED_TEXT, text)), 5);
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(ENTERED_TEXT, text)), 10);
         return driver.findElement(By.xpath(String.format(ENTERED_TEXT, text))).isDisplayed();
     }
 }
