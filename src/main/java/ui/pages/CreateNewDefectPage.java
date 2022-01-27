@@ -20,6 +20,8 @@ public class CreateNewDefectPage extends DefectsPage {
     private WebElement createDefectButton;
     @FindBy(xpath = "//*[contains(@class,'add-attachment')]")
     private WebElement addAttachmentBtn;
+    @FindBy(xpath = "//*[text()='Actual result' and contains(@class, 'label required')]")
+    private WebElement actualResultLabel;
 
 
     @Step("Create a new defect entering the defect title: '{defect.defectTitle}' and the actual result: '{defect.actualResult}'")
@@ -62,6 +64,7 @@ public class CreateNewDefectPage extends DefectsPage {
     public DefectsPage createNewDefectFillingInRequiredFieldsAndSelectingSeverity(Defect defect) {
         Waiters.waitForElementLocated(driver, createDefectButton, 10);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
+        Waiters.waitForElementLocated(driver, actualResultLabel, 10);
         new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         new DropDown(driver, SEVERITY_LABEL).selectOption(defect.getSeverity());
         clickOnCreateDefectButton();
