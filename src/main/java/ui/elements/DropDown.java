@@ -20,7 +20,7 @@ public class DropDown {
     private static final String OPTION = "//*[text()='%s' and contains(@id, 'select')]";
 
     public void selectOption(String optionText) {
-        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(DROPDOWN, dropdownLabel)), 10);
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(DROPDOWN, dropdownLabel)), 15);
         driver.findElement(By.xpath(String.format(DROPDOWN, dropdownLabel))).click();
         log.info(String.format("Selecting '%s' option from '%s' dropdown", optionText, dropdownLabel));
         driver.findElement(By.xpath(String.format(OPTION, optionText))).click();
