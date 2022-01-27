@@ -23,6 +23,8 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
     private WebElement addAttachmentBtn;
     @FindBy(id = "add-step")
     private WebElement addStepBtn;
+    @FindBy(xpath = "//*[contains(@class, 'step-number')]")
+    private WebElement stepNumber;
 
     private static final String SELECTED_OPTION = "//*[text()='%s']//parent::*[contains(@class,'param')]//*[contains(@class,'param-value')]";
     private static final String ENTERED_TEXT = "//*[contains(@class,'preview')]//child::*[text()='%s']";
@@ -63,6 +65,7 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         new TextField(driver, PRE_CONDITIONS_LABEL).writeTextIntoTextField(testCase.getPreConditions());
         new TextField(driver, POST_CONDITIONS_LABEL).writeTextIntoTextField(testCase.getPostConditions());
         clickOnAddStepButton();
+        Waiters.waitForElementLocated(driver, stepNumber, 5);
         new TextField(driver, ACTION_LABEL).writeTextIntoTextField(testCase.getAction());
         new TextField(driver, INPUT_DATA_LABEL).writeTextIntoTextField(testCase.getInputData());
         new TextField(driver, EXPECTED_RESULT_LABEL).writeTextIntoTextField(testCase.getExpectedResult());
