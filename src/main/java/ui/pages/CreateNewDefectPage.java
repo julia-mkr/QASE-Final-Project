@@ -91,6 +91,6 @@ public class CreateNewDefectPage extends DefectsPage {
         Waiters.waitForElementLocated(driver, addAttachmentBtn, 10);
         log.info("Clicking on the 'Add attachment' button with JS");
         jsClick(addAttachmentBtn);
-        Waiters.waitForElementLocated(driver, dropZoneMessage, 5);
+        Waiters.waitForElementLocated(driver, dropZoneMessage, 10);
     }
 }
