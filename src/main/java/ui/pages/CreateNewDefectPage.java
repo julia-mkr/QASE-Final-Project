@@ -2,11 +2,9 @@ package ui.pages;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
-import org.checkerframework.common.value.qual.StringVal;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Wait;
 import ui.elements.*;
 import ui.objects.*;
 import ui.utils.Waiters;
@@ -54,7 +52,7 @@ public class CreateNewDefectPage extends DefectsPage {
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
         new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         clickOnAddAttachmentButton();
-        UploadFileModalPage.uploadFile(fileName);
+        UploadFileModalPage.uploadFile(driver, fileName);
         clickOnCreateDefectButtonWithJs();
         return new DefectsPage(driver);
     }

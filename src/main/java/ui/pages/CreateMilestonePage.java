@@ -44,7 +44,7 @@ public class CreateMilestonePage extends MilestonesPage {
 
     @Step("Click on the 'Create milestone' button")
     public void clickOnCreateMilestoneBtn() {
-        log.info("Clicking on the 'Create milestone' button");
-        createMilestoneBtn.click();
+        log.info("Clicking on the 'Create milestone' button with JS");
+        jsClick(createMilestoneBtn);
     }
 }
