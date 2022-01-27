@@ -84,7 +84,6 @@ public class CreateNewDefectPage extends DefectsPage {
 
     @Step("Click on the 'Add attachment' button")
     public void clickOnAddAttachmentButton() {
-        Waiters.waitForElementLocated(driver, addAttachmentBtn, 5);
         log.info("Clicking on the 'Add attachment' button with JS");
         jsClick(addAttachmentBtn);
     }
