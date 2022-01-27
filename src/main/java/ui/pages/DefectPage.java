@@ -53,7 +53,7 @@ public class DefectPage extends DefectsPage {
 
     @Step("Mark the defect as 'In progress'")
     public void markDefectAsInProgress() {
-        Waiters.waitForElementLocated(driver, inProgressBtn, 5);
+        Waiters.waitForElementLocated(driver, inProgressBtn, 10);
         log.info("Clicking on the 'In progress' button");
         inProgressBtn.click();
         clickOnConfirmButton();
@@ -81,7 +81,7 @@ public class DefectPage extends DefectsPage {
     }
 
     public String getDefectStatus() {
-        Waiters.waitForElementBecomesVisible(driver,RESOLVED_DEFECT_STATUS, 5);
+        Waiters.waitForElementBecomesVisible(driver,RESOLVED_DEFECT_STATUS, 10);
         return driver.findElement(RESOLVED_DEFECT_STATUS).getText();
     }
 }
