@@ -18,7 +18,7 @@ public class InputField {
     private static final String INPUT_FIELD = "//*[text()='%s']//ancestor::*[@class='form-group']//input";
 
     public void writeTextIntoInputField(String text) {
-        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(INPUT_FIELD, label)), 5);
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(INPUT_FIELD, label)), 10);
         log.info(String.format("Typing the text: '%s' into the '%s' input field", text, label));
         driver.findElement(By.xpath(String.format(INPUT_FIELD, label))).sendKeys(text);
     }
