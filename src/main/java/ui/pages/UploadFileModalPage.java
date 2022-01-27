@@ -17,11 +17,14 @@ public class UploadFileModalPage extends ProjectRepositoryPage {
     }
 
     @FindBy(xpath = "//input[@type='file']")
-    private static WebElement uploadFile;
+    private WebElement uploadFile;
+    @FindBy(xpath = "//*[contains (text(), 'Drop files here')]")
+    private WebElement dropFileZoneText;
 
     @Step("Upload the '{fileName}' file")
-    public static void uploadFile(String fileName) {
+    public void uploadFile(String fileName) {
         File filePath = new File(String.format("src/test/resources/%s", fileName));
+        Waiters.waitForElementLocated(driver, dropFileZoneText, 10);
         log.info("Attaching the " + fileName + " file");
         uploadFile.sendKeys(filePath.getAbsolutePath());
     }

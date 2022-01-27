@@ -22,8 +22,6 @@ public class CreateNewDefectPage extends DefectsPage {
     private WebElement addAttachmentBtn;
     @FindBy(xpath = "//*[contains(@id,'Group')]//p")
     private WebElement actualResultField;
-    @FindBy(xpath = "//*[contains(text(), 'Drop files here')]")
-    private WebElement dropZoneMessage;
 
     @Step("Create a new defect entering the defect title: '{defect.defectTitle}' and the actual result: '{defect.actualResult}'")
     public DefectsPage createNewDefectFillingInRequiredFields(Defect defect) {
@@ -58,7 +56,7 @@ public class CreateNewDefectPage extends DefectsPage {
         Waiters.waitForElementLocated(driver, actualResultField, 10);
         actualResultField.sendKeys(defect.getActualResult());
         clickOnAddAttachmentButton();
-        UploadFileModalPage.uploadFile(fileName);
+        new UploadFileModalPage(driver).uploadFile(fileName);
         clickOnCreateDefectButtonWithJs();
         return new DefectsPage(driver);
     }
@@ -92,6 +90,5 @@ public class CreateNewDefectPage extends DefectsPage {
         Waiters.waitForElementLocated(driver, addAttachmentBtn, 5);
         log.info("Clicking on the 'Add attachment' button with JS");
         jsClick(addAttachmentBtn);
-        Waiters.waitForElementLocated(driver, dropZoneMessage, 5);
     }
 }

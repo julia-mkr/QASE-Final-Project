@@ -23,8 +23,7 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
     private WebElement addAttachmentBtn;
     @FindBy(id = "add-step")
     private WebElement addStepBtn;
-    @FindBy(xpath = "//*[contains(text(), 'Drop files here')]")
-    private WebElement dropZoneMessage;
+
     private static final String SELECTED_OPTION = "//*[text()='%s']//parent::*[contains(@class,'param')]//*[contains(@class,'param-value')]";
     private static final String ENTERED_TEXT = "//*[contains(@class,'preview')]//child::*[text()='%s']";
 
@@ -79,7 +78,7 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(testCase.getDescription());
         clickOnAddAttachmentButton();
-        UploadFileModalPage.uploadFile(fileName);
+        new UploadFileModalPage(driver).uploadFile(fileName);
         clickOnSaveButton();
         return new ProjectRepositoryPage(driver);
     }
@@ -95,7 +94,6 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         Waiters.waitForElementLocated(driver, addAttachmentBtn, 5);
         log.info("Clicking on the 'Add attachment' button with JS");
         jsClick(addAttachmentBtn);
-        Waiters.waitForElementLocated(driver, dropZoneMessage, 5);
     }
 
     @Step("Click on the 'Add step' button")
