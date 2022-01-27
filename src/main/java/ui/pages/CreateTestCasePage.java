@@ -65,7 +65,6 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         new TextField(driver, PRE_CONDITIONS_LABEL).writeTextIntoTextField(testCase.getPreConditions());
         new TextField(driver, POST_CONDITIONS_LABEL).writeTextIntoTextField(testCase.getPostConditions());
         clickOnAddStepButton();
-        Waiters.waitForElementLocated(driver, stepNumber, 5);
         new TextField(driver, ACTION_LABEL).writeTextIntoTextField(testCase.getAction());
         new TextField(driver, INPUT_DATA_LABEL).writeTextIntoTextField(testCase.getInputData());
         new TextField(driver, EXPECTED_RESULT_LABEL).writeTextIntoTextField(testCase.getExpectedResult());
@@ -104,6 +103,7 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
         Waiters.waitForElementLocated(driver, addStepBtn, 5);
         log.info("Clicking on the 'Add step' button with JS");
         jsClick(addStepBtn);
+        Waiters.waitForElementLocated(driver, stepNumber, 5);
     }
 
     @Step("Verify, that selected option: '{label}' is displayed")
