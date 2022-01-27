@@ -52,7 +52,6 @@ public class CreateNewDefectPage extends DefectsPage {
     public DefectsPage createNewDefectFillingInRequiredFieldsAndAttachingFile(Defect defect, String fileName) {
         Waiters.waitForElementLocated(driver, createDefectButton, 10);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
-        Waiters.waitForElementLocated(driver, actualResultField, 10);
         actualResultField.sendKeys(defect.getActualResult());
         clickOnAddAttachmentButton();
         UploadFileModalPage.uploadFile(driver, fileName);
@@ -65,7 +64,6 @@ public class CreateNewDefectPage extends DefectsPage {
     public DefectsPage createNewDefectFillingInRequiredFieldsAndSelectingSeverity(Defect defect) {
         Waiters.waitForElementLocated(driver, createDefectButton, 10);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
-        Waiters.waitForElementLocated(driver, actualResultField, 10);
         actualResultField.sendKeys(defect.getActualResult());
         new DropDown(driver, SEVERITY_LABEL).selectOption(defect.getSeverity());
         clickOnCreateDefectButton();
