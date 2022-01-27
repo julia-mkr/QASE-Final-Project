@@ -7,29 +7,29 @@ import testData.DefectTestData;
 
 public class DefectTests extends BaseTest implements DefectTestData {
 
-    @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields")
-    @Description("Creation of a new defect report with filling in the required fields")
-    public void createDefectFillingInRequiredFieldsTest() {
-        projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
-                .clickOnDefectsSubMenuOption()
-                .clickOnCreateNewDefectButton()
-                .createNewDefectFillingInRequiredFields(DATA_FOR_TEST_DEFECT_1)
-                .clickOnDefectTitle(DATA_FOR_TEST_DEFECT_1.getDefectTitle());
-        Assert.assertTrue(verificationUtils.verifyDefectInputAndTextFields(DATA_FOR_TEST_DEFECT_1));
-    }
-
-    @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in all the fields and selecting value " +
-            "options from dropdown menus")
-    @Description("Creation of a new defect report with filling in all the fields and selecting values from the 'Milestones', " +
-            "'Severity', and 'Assignee' dropdowns")
-    public void createDefectFillingInAllFieldsTest() {
-        projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
-                .clickOnDefectsSubMenuOption()
-                .clickOnCreateNewDefectButton()
-                .createNewDefectFillingInAllFields(DATA_FOR_TEST_DEFECT_2)
-                .clickOnDefectTitle(DATA_FOR_TEST_DEFECT_2.getDefectTitle());
-        Assert.assertTrue(verificationUtils.verifyDefectAllFieldsAndDropDownOptions(DATA_FOR_TEST_DEFECT_2));
-    }
+//    @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields")
+//    @Description("Creation of a new defect report with filling in the required fields")
+//    public void createDefectFillingInRequiredFieldsTest() {
+//        projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
+//                .clickOnDefectsSubMenuOption()
+//                .clickOnCreateNewDefectButton()
+//                .createNewDefectFillingInRequiredFields(DATA_FOR_TEST_DEFECT_1)
+//                .clickOnDefectTitle(DATA_FOR_TEST_DEFECT_1.getDefectTitle());
+//        Assert.assertTrue(verificationUtils.verifyDefectInputAndTextFields(DATA_FOR_TEST_DEFECT_1));
+//    }
+//
+//    @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in all the fields and selecting value " +
+//            "options from dropdown menus")
+//    @Description("Creation of a new defect report with filling in all the fields and selecting values from the 'Milestones', " +
+//            "'Severity', and 'Assignee' dropdowns")
+//    public void createDefectFillingInAllFieldsTest() {
+//        projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
+//                .clickOnDefectsSubMenuOption()
+//                .clickOnCreateNewDefectButton()
+//                .createNewDefectFillingInAllFields(DATA_FOR_TEST_DEFECT_2)
+//                .clickOnDefectTitle(DATA_FOR_TEST_DEFECT_2.getDefectTitle());
+//        Assert.assertTrue(verificationUtils.verifyDefectAllFieldsAndDropDownOptions(DATA_FOR_TEST_DEFECT_2));
+//    }
 
     @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields and attaching a file" +
             " to it")

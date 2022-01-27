@@ -3,16 +3,16 @@
 <suite thread-count="2" name="UI Tests" parallel="classes">
     <test name="tests">
         <classes>
-            <class name="tests.LoginTests"/>
-            <class name="tests.ProjectsTests"/>
-            <class name="tests.SuiteTests"/>
-            <class name="tests.CaseTests"/>
-            <class name="tests.MilestoneTests"/>
+<!--            <class name="tests.LoginTests"/>-->
+<!--            <class name="tests.ProjectsTests"/>-->
+<!--            <class name="tests.SuiteTests"/>-->
+<!--            <class name="tests.CaseTests"/>-->
+<!--            <class name="tests.MilestoneTests"/>-->
             <class name="tests.DefectTests"/>
-            <class name="tests.TestPlanTests"/>
-            <class name="tests.GroupsTests"/>
-            <class name="tests.InviteNewUserTests"/>
-            <class name="tests.QaseTests"/>
+<!--            <class name="tests.TestPlanTests"/>-->
+<!--            <class name="tests.GroupsTests"/>-->
+<!--            <class name="tests.InviteNewUserTests"/>-->
+<!--            <class name="tests.QaseTests"/>-->
         </classes>
     </test>
 </suite>
