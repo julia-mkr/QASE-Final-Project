@@ -29,7 +29,8 @@ public class CreateNewDefectPage extends DefectsPage {
     public DefectsPage createNewDefectFillingInRequiredFields(Defect defect) {
         Waiters.waitForElementLocated(driver, createDefectButton, 10);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
-        new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
+        Waiters.waitForElementLocated(driver, actualResultField, 5);
+        actualResultField.sendKeys(defect.getActualResult());
         clickOnCreateDefectButton();
         return new DefectsPage(driver);
     }
@@ -88,7 +89,7 @@ public class CreateNewDefectPage extends DefectsPage {
 
     @Step("Click on the 'Add attachment' button")
     public void clickOnAddAttachmentButton() {
-        Waiters.waitForElementLocated(driver, addAttachmentBtn, 10);
+        Waiters.waitForElementLocated(driver, addAttachmentBtn, 5);
         log.info("Clicking on the 'Add attachment' button with JS");
         jsClick(addAttachmentBtn);
         Waiters.waitForElementLocated(driver, dropZoneMessage, 10);
