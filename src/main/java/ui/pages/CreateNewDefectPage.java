@@ -52,7 +52,7 @@ public class CreateNewDefectPage extends DefectsPage {
     public DefectsPage createNewDefectFillingInRequiredFieldsAndAttachingFile(Defect defect, String fileName) {
         Waiters.waitForElementLocated(driver, createDefectButton, 10);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
-        actualResultField.sendKeys(defect.getActualResult());
+        new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         clickOnAddAttachmentButton();
         UploadFileModalPage.uploadFile(driver, fileName);
         clickOnCreateDefectButtonWithJs();
