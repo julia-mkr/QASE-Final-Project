@@ -10,8 +10,8 @@ public interface MilestoneTestData {
             .build();
 
     Milestone DATA_FOR_TEST_MILESTONE_2  = Milestone.builder()
-            .milestoneName("Release 2.9")
-            .description("This is a milestone for Release 2.9.")
+            .milestoneName("Release 2,3")
+            .description("This is a milestone for Release 2.3.")
             .status("Completed")
             .dueDate("2022-01-30")
             .build();
