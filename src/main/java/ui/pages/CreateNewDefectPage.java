@@ -20,15 +20,11 @@ public class CreateNewDefectPage extends DefectsPage {
     private WebElement createDefectButton;
     @FindBy(xpath = "//*[contains(@class,'add-attachment')]")
     private WebElement addAttachmentBtn;
-    @FindBy(xpath = "//*[contains(@id,'Group')]//p")
-    private WebElement actualResultField;
 
     @Step("Create a new defect entering the defect title: '{defect.defectTitle}' and the actual result: '{defect.actualResult}'")
     public DefectsPage createNewDefectFillingInRequiredFields(Defect defect) {
-        Waiters.waitForElementLocated(driver, createDefectButton, 10);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
-        Waiters.waitForElementLocated(driver, actualResultField, 10);
-        actualResultField.sendKeys(defect.getActualResult());
+        new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         clickOnCreateDefectButton();
         return new DefectsPage(driver);
     }
@@ -37,10 +33,8 @@ public class CreateNewDefectPage extends DefectsPage {
             " and select the 'Milestone' value: '{defect.milestones}', the 'Severity' value: '{defect.severity}', and " +
             "the 'Assignee' name: '{defect.assignee}'")
     public DefectsPage createNewDefectFillingInAllFields(Defect defect) {
-        Waiters.waitForElementLocated(driver, createDefectButton, 10);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
-        Waiters.waitForElementLocated(driver, actualResultField, 10);
-        actualResultField.sendKeys(defect.getActualResult());
+        new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         new DropDown(driver, MILESTONE_LABEL).selectOption(defect.getMilestones());
         new DropDown(driver, SEVERITY_LABEL).selectOption(defect.getSeverity());
         new AssigneeDropdown(driver).selectAssigneeName(defect.getAssignee());
@@ -51,10 +45,8 @@ public class CreateNewDefectPage extends DefectsPage {
     @Step("Create a new defect entering the defect title: '{defect.defectTitle}', the actual result: '{defect.actualResult}'" +
             " and attach the '{filename}' file")
     public DefectsPage createNewDefectFillingInRequiredFieldsAndAttachingFile(Defect defect, String fileName) {
-        Waiters.waitForElementLocated(driver, createDefectButton, 10);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
-        Waiters.waitForElementLocated(driver, actualResultField, 10);
-        actualResultField.sendKeys(defect.getActualResult());
+        new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         clickOnAddAttachmentButton();
         new UploadFileModalPage(driver).uploadFile(fileName);
         clickOnCreateDefectButtonWithJs();
@@ -64,10 +56,8 @@ public class CreateNewDefectPage extends DefectsPage {
     @Step("Create a new defect entering the defect title: '{defect.defectTitle}', the actual result: '{defect.actualResult}' " +
             "and select the 'Severity' value: '{defect.severity}'")
     public DefectsPage createNewDefectFillingInRequiredFieldsAndSelectingSeverity(Defect defect) {
-        Waiters.waitForElementLocated(driver, createDefectButton, 10);
         new InputField(driver, DEFECT_TITLE_LABEL).writeTextIntoInputField(defect.getDefectTitle());
-        Waiters.waitForElementLocated(driver, actualResultField, 10);
-        actualResultField.sendKeys(defect.getActualResult());
+        new TextField(driver, ACTUAL_RESULT_LABEL).writeTextIntoTextField(defect.getActualResult());
         new DropDown(driver, SEVERITY_LABEL).selectOption(defect.getSeverity());
         clickOnCreateDefectButton();
         return new DefectsPage(driver);
