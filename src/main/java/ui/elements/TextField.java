@@ -2,11 +2,7 @@ package ui.elements;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ui.utils.Waiters;
-
-import java.time.Duration;
 
 @Log4j2
 public class TextField {
@@ -22,11 +18,13 @@ public class TextField {
     private static final String TEXT_FIELD = "//*[text()='%s']//ancestor::*[contains(@id, 'Group')]//p";
 
     public void writeTextIntoTextField(String text) {
+
         try {
             driver.findElement(By.xpath(String.format(TEXT_FIELD, label))).click();
             log.info(String.format("Typing the text: '%s' into the '%s' text field", text, label));
             driver.findElement(By.xpath(String.format(TEXT_FIELD, label))).sendKeys(text);
         } catch (UnhandledAlertException e) {
+            Waiters.waitForAlertBecomesPresent(driver, 10);
             driver.switchTo().alert().dismiss();
             log.info(String.format("Typing the text: '%s' into the '%s' text field", text, label));
             driver.findElement(By.xpath(String.format(TEXT_FIELD, label))).sendKeys(text);
@@ -41,6 +39,7 @@ public class TextField {
             log.info(String.format("Typing the text: '%s' into the '%s' text field", text, label));
             driver.findElement(By.xpath(String.format(TEXT_FIELD, label))).sendKeys(text);
         } catch (UnhandledAlertException e) {
+            Waiters.waitForAlertBecomesPresent(driver, 10);
             driver.switchTo().alert().dismiss();
             log.info(String.format("Typing the text: '%s' into the '%s' text field", text, label));
             driver.findElement(By.xpath(String.format(TEXT_FIELD, label))).sendKeys(text);

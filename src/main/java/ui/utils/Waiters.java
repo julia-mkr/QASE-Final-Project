@@ -30,4 +30,10 @@ public class Waiters {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
+
+    public static void waitForAlertBecomesPresent(WebDriver driver, int timeout) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.alertIsPresent());
+    }
+
 }
