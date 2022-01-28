@@ -40,13 +40,3 @@ workflows:
   commit:
     jobs:
       - ui-tests
-  periodical:
-    triggers:
-      - schedule:
-          cron: disabled
-          filters:
-            branches:
-              only:
-              - master
-    jobs:
-      - ui-tests
