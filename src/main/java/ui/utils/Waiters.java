@@ -32,7 +32,7 @@ public class Waiters {
     }
 
     public static void waitForAlertBecomesPresent(WebDriver driver, int timeout) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
