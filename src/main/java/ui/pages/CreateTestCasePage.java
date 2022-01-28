@@ -58,7 +58,7 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
             "the preconditions: '{testCase.preConditions}', the post-conditions: '{testCase.postConditions}'," +
             " the action: '{testCase.action}', the input data: '{testCase.inputData}', and the expected result: " +
             "'{testCase.expectedResult}' into the input fields")
-    public ProjectRepositoryPage createTestCaseFillingInInputFields(TestCase testCase) {
+    public ProjectRepositoryPage createTestCaseFillingInInputFields(TestCase testCase) throws InterruptedException {
         Waiters.waitForElementLocated(driver, saveBtn, 5);
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(testCase.getDescription());
@@ -75,7 +75,7 @@ public class CreateTestCasePage extends ProjectRepositoryPage {
     @Step("Create a new test case entering the case title: '{testCase.title}', the description: '{testCase.description}' " +
             "into the input fields and " +
             "attach the '{fileName}' file")
-    public ProjectRepositoryPage createTestcaseFillingInSomeFieldsAndAttachingFile(TestCase testCase, String fileName) {
+    public ProjectRepositoryPage createTestcaseFillingInSomeFieldsAndAttachingFile(TestCase testCase, String fileName) throws InterruptedException {
         Waiters.waitForElementLocated(driver, saveBtn, 5);
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(testCase.getTitle());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(testCase.getDescription());

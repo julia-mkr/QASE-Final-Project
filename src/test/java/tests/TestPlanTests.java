@@ -8,7 +8,7 @@ public class TestPlanTests extends BaseTest {
 
     @Test(groups = "Smoke", description = "The test creates a test plan filling in all the fields and adding test cases to it")
     @Description("Creation of a new test plan with filling in all the fields and adding of a suite of test cases")
-    public void createTestPlanFillingInAllFieldsAndAddingTests() {
+    public void createTestPlanFillingInAllFieldsAndAddingTests() throws InterruptedException {
         projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnTestPlansSubMenuOption()
                 .clickOnCreateButton()

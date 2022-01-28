@@ -32,7 +32,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and attaching a file" +
             " to it")
     @Description("Creation of a new test case with filling in the required fields and attaching a file to it")
-    public void createTestCaseFillingInRequiredFieldsAndAttachingFileTest() {
+    public void createTestCaseFillingInRequiredFieldsAndAttachingFileTest() throws InterruptedException {
         projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestcaseFillingInSomeFieldsAndAttachingFile(DATA_FOR_TEST_CASE_3, ATTACHING_FILE)
@@ -44,7 +44,7 @@ public class CaseTests extends BaseTest implements TestCaseData {
     @Test(groups = {"Smoke"}, description = "The test creates a new test case filling in the required fields and all the text fields")
     @Description("Creation of a new test case with filling in all the input fields such as: 'Title', 'Description', 'Pre-conditions', " +
             "'Post-condition' and adds steps to reproduce")
-    public void createTestCaseFillingInInputFieldsTest() {
+    public void createTestCaseFillingInInputFieldsTest() throws InterruptedException {
         projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnCreateCaseButton()
                 .createTestCaseFillingInInputFields(DATA_FOR_TEST_CASE_4)

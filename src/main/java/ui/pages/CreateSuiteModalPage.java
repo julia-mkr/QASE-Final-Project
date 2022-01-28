@@ -28,7 +28,7 @@ public class CreateSuiteModalPage extends ProjectRepositoryPage {
 
     @Step("Create a new suite filling in all the fields and entering the suite name: '{testSuite.suiteName}', " +
             "the description: '{testSuite.description}' and the preconditions: '{testSuite.preCondition}'")
-    public ProjectRepositoryPage createSuiteFillingInAllFields(TestSuite testSuite) {
+    public ProjectRepositoryPage createSuiteFillingInAllFields(TestSuite testSuite) throws InterruptedException {
         new InputField(driver, SUITE_NAME_LABEL).writeTextIntoInputField(testSuite.getSuiteName());
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(testSuite.getDescription());
         new TextField(driver, TS_PRECONDITIONS_LABEL).writeTextIntoTextField(testSuite.getPreCondition());
