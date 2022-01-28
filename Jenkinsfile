@@ -10,6 +10,7 @@ pipeline {
     }
     parameters {
         gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
+        browserParameters { choice(name: 'BROWSER', choices: ['firefox', 'edge', 'chrome'], description: '') }
     }
 
    stages {
@@ -22,7 +23,7 @@ pipeline {
             // sh "mvn clean test"
 
             // To run Maven on a Windows agent, use
-            bat "mvn -Dmaven.test.failure.ignore=true clean test"
+            bat "mvn -Dmaven.test.failure.ignore=true clean -Demail=${username} -Dpassword=${password} -DinvalidEmail=${invalidEmail} -Dtoken=${token} -Dbrowser=${BROWSER} test"
          }
 
          post {
