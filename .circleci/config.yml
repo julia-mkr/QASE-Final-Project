@@ -43,6 +43,7 @@ workflows:
   periodical:
     triggers:
       - schedule:
+          cron: ""
           filters:
             branches:
               only:
