@@ -10,12 +10,7 @@ pipeline {
     }
     parameters {
         gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
-        parameters {
-            choice(
-                name: 'BROWSER',
-                choices: ['firefox', 'edge', 'chrome'],
-                description: '')
-        }
+        choice(name: 'BROWSER', choices: ['firefox', 'edge', 'chrome'], description: '')
     }
 
    stages {
