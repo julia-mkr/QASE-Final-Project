@@ -9,7 +9,7 @@ public class MilestoneTests extends BaseTest implements MilestoneTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a milestone filling in the required fields")
     @Description("Creation of a new milestone with filling in only the required fields")
-    public void createMilestoneFillingInRequiredFieldsTest() throws InterruptedException {
+    public void createMilestoneFillingInRequiredFieldsTest() {
         projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnMilestonesSubMenuOption()
                 .clickOnCreateMilestoneButton()
@@ -19,7 +19,7 @@ public class MilestoneTests extends BaseTest implements MilestoneTestData {
 
     @Test(groups = {"Critical"}, description = "The test creates a milestone filling in all the fields")
     @Description("Creation of a new milestone with filling in all the fields")
-    public void createMilestoneFillingInAllFieldsTest() throws InterruptedException {
+    public void createMilestoneFillingInAllFieldsTest() {
         projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnMilestonesSubMenuOption()
                 .clickOnCreateMilestoneButton()

@@ -9,7 +9,7 @@ public class DefectTests extends BaseTest implements DefectTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields")
     @Description("Creation of a new defect report with filling in the required fields")
-    public void createDefectFillingInRequiredFieldsTest() throws InterruptedException {
+    public void createDefectFillingInRequiredFieldsTest() {
         projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnDefectsSubMenuOption()
                 .clickOnCreateNewDefectButton()
@@ -22,7 +22,7 @@ public class DefectTests extends BaseTest implements DefectTestData {
             "options from dropdown menus")
     @Description("Creation of a new defect report with filling in all the fields and selecting values from the 'Milestones', " +
             "'Severity', and 'Assignee' dropdowns")
-    public void createDefectFillingInAllFieldsTest() throws InterruptedException {
+    public void createDefectFillingInAllFieldsTest() {
         projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnDefectsSubMenuOption()
                 .clickOnCreateNewDefectButton()
@@ -34,7 +34,7 @@ public class DefectTests extends BaseTest implements DefectTestData {
     @Test(groups = {"Smoke"}, description = "The test creates a new defect filling in the required fields and attaching a file" +
             " to it")
     @Description("Creation of a new defect report with filling in the required fields and attaching a file to it")
-    public void createDefectFillingInRequiredFieldsAndAttachingFileTest() throws InterruptedException {
+    public void createDefectFillingInRequiredFieldsAndAttachingFileTest() {
         projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnDefectsSubMenuOption()
                 .clickOnCreateNewDefectButton()
@@ -45,7 +45,7 @@ public class DefectTests extends BaseTest implements DefectTestData {
 
     @Test(groups = {"Smoke"}, description = "The test creates a new defect and resolves it")
     @Description("Resolving of the defect")
-    public void resolveCreatedDefectTest() throws InterruptedException {
+    public void resolveCreatedDefectTest() {
         projectRepositorySteps.loginAndClickOnProject(driver, EMAIL, PASSWORD, PROJECT_TITLE)
                 .clickOnDefectsSubMenuOption()
                 .clickOnCreateNewDefectButton()

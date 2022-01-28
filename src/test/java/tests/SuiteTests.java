@@ -19,7 +19,7 @@ public class SuiteTests extends BaseTest implements TestSuiteData {
 
     @Test(groups = {"Critical"}, description = "The test create a test suite filling in all the fields")
     @Description("Creation of a new test suite with filling in all the input fields")
-    public void createSuiteFillingInAllFieldsTest() throws InterruptedException {
+    public void createSuiteFillingInAllFieldsTest() {
         loginPage.login(EMAIL, PASSWORD)
                 .clickOnProject(PROJECT_TITLE)
                 .clickOnCreateSuiteButton()

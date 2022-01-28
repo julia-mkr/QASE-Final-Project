@@ -26,7 +26,7 @@ public class CreateTestPlanPage extends TestPlansPage {
     private static final String SUITE_CHECKBOX = "//*[text()='%s']//ancestor::*[contains (@id, 'suite')]//span";
 
     @Step("Create a test plan with the title: '{title}', the description: '{description}', and add the '{suiteName}' suite to it")
-    public TestPlansPage createTestPlanFillingInAllFieldsAndAddingTestCases(String title, String description, String suiteName) throws InterruptedException {
+    public TestPlansPage createTestPlanFillingInAllFieldsAndAddingTestCases(String title, String description, String suiteName) {
         Waiters.waitForElementLocated(driver, createPlanBtn, 5);
         new InputField(driver, TITLE_LABEL).writeTextIntoInputField(title);
         new TextField(driver, DESCRIPTION_LABEL).writeTextIntoTextField(description);
