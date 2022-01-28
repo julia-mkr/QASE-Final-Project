@@ -27,6 +27,7 @@ public class TextField {
 
     public void writeTextIntoTextFieldWithJs(String text) {
         JavascriptExecutor js  = (JavascriptExecutor)driver;
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(TEXT_FIELD, label)), 5);
         js.executeScript("arguments[0].click();", driver.findElement(By.xpath(String.format(TEXT_FIELD, label))));
         driver.findElement(By.xpath(String.format(TEXT_FIELD, label))).sendKeys(text);
     }
