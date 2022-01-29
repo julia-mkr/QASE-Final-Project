@@ -19,7 +19,7 @@ public class UserMenuDropdown {
     private static final String MENU_OPTION = "//*[@class='user-menu-item']//*[contains(text(), '%s')]";
 
     public void clickOnOption() {
-        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(MENU_OPTION, userMenuOption)), 10);
+        Waiters.waitForElementBecomesVisible(driver, By.xpath(String.format(MENU_OPTION, userMenuOption)), 5);
         log.info(String.format("Clicking on the '%s' option", userMenuOption));
         driver.findElement(By.xpath(String.format(MENU_OPTION, userMenuOption))).click();
     }
