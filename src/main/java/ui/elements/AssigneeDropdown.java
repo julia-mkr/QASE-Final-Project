@@ -18,7 +18,7 @@ public class AssigneeDropdown {
     private static final String ASSIGNEE_NAME = "//*[text()='%s' and contains(@id, 'select')]";
 
     public void selectAssigneeName(String assigneeName) {
-        Waiters.waitForElementBecomesVisible(driver, ASSIGNEE_DROPDOWN, 10);
+        Waiters.waitForElementBecomesVisible(driver, ASSIGNEE_DROPDOWN, 5);
         log.info("Clicking on the 'Assignee' dropdown");
         driver.findElement(ASSIGNEE_DROPDOWN).click();
         log.info("Selecting " + assigneeName);

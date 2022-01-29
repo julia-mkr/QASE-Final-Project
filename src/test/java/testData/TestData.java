@@ -8,7 +8,6 @@ public interface TestData {
     String PASSWORD = System.getenv().getOrDefault("password", PropertyReader.getProperty("password"));
     String INVALID_EMAIL = System.getenv().getOrDefault("invalidEmail", PropertyReader.getProperty("invalidEmail"));
     String EXPECTED_LOGIN_ERROR_MESSAGE = "These credentials do not match our records.";
-    String EXPECTED_EMPTY_REPOSITORY_TEXT = "Looks like you don’t have any suites and cases yet.";
     String TEXT_FOR_PROJECT_DESCRIPTION_FIELD = "Some description for this project";
     String LOGIN_URL = "https://app.qase.io/login";
     String PROJECT_TITLE_FOR_CREATION = "New project";

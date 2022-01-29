@@ -24,8 +24,8 @@ public class ProjectRepositoryPage extends ProjectsPage {
     private WebElement deleteCaseBtn;
     @FindBy(xpath = "//*[contains(@alt,'No suites')]")
     private WebElement imageOnProjectRepository;
-    @FindBy(xpath = "//*[contains(@class,'no-project')]")
-    private WebElement emptyProjectRepositoryText;
+    @FindBy(xpath = "//*[text()='Create new suite']")
+    private WebElement createNewSuiteBtn;
 
     private static final String SUITE_TITLE = "//h3[contains(@class, 'title')]//*[text()='%s']";
     private static final String TEST_CASE_TITLE = "//*[text()='%s' and contains(@class,'title')]";
@@ -78,9 +78,9 @@ public class ProjectRepositoryPage extends ProjectsPage {
         return imageOnProjectRepository.isDisplayed();
     }
 
-    public String getTextThatProjectRepositoryIsEmpty() {
-        Waiters.waitForElementLocated(driver, emptyProjectRepositoryText, 5);
-        return emptyProjectRepositoryText.getText();
+    public boolean isCreateNewSuiteButtonDisplayed() {
+        Waiters.waitForElementLocated(driver, createNewSuiteBtn, 5);
+        return createNewSuiteBtn.isDisplayed();
     }
 
     @Step("Verify, that the created '{suiteName}' suite is displayed on the 'Project Repository' page")

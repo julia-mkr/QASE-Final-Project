@@ -13,7 +13,7 @@ public class ProjectsTests extends BaseTest {
                 .clickOnCreateProjectButton()
                 .createNewPublicProject(PROJECT_TITLE_FOR_CREATION, PROJECT_CODE_FOR_CREATION, TEXT_FOR_PROJECT_DESCRIPTION_FIELD);
         Assert.assertTrue(projectRepositoryPage.isImageOnProjectRepositoryDisplayed());
-        Assert.assertEquals(projectRepositoryPage.getTextThatProjectRepositoryIsEmpty(), EXPECTED_EMPTY_REPOSITORY_TEXT);
+        Assert.assertTrue(projectRepositoryPage.isCreateNewSuiteButtonDisplayed());
     }
 
     @Test(groups = {"Smoke"}, description = "The test deletes a created project")
