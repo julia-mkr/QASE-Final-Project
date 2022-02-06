@@ -3,7 +3,7 @@ package tests;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testData.MilestoneTestData;
+import test_data.MilestoneTestData;
 
 public class MilestoneTests extends BaseTest implements MilestoneTestData {
 

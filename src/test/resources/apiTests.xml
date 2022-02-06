@@ -3,10 +3,10 @@
 <suite thread-count="2" name="API Tests" parallel="classes">
     <test name="api-tests">
         <classes>
-            <class name="tests.apiTests.ApiCaseTests"/>
-            <class name="tests.apiTests.ApiDefectTests"/>
-            <class name="tests.apiTests.ApiPlanTests"/>
-            <class name="tests.apiTests.UploadAttachmentTests"/>
+            <class name="tests.api_tests.ApiCaseTests"/>
+            <class name="tests.api_tests.ApiDefectTests"/>
+            <class name="tests.api_tests.ApiPlanTests"/>
+            <class name="tests.api_tests.UploadAttachmentTests"/>
         </classes>
     </test>
 </suite>

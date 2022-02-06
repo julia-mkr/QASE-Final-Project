@@ -3,7 +3,7 @@ package tests;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testData.DefectTestData;
+import test_data.DefectTestData;
 
 public class DefectTests extends BaseTest implements DefectTestData {
 

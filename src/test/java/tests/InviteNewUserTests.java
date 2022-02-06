@@ -3,7 +3,7 @@ package tests;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testData.InvitesTestData;
+import test_data.InvitesTestData;
 
 public class InviteNewUserTests extends BaseTest implements InvitesTestData {
 

@@ -3,7 +3,7 @@ package tests;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testData.TestCaseData;
+import test_data.TestCaseData;
 
 public class CaseTests extends BaseTest implements TestCaseData {
 

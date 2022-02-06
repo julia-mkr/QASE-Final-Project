@@ -1,4 +1,4 @@
-package testData.apiTestData;
+package test_data.apiTestData;
 
 import api.objects.defectObjects.CreateDefect;
 

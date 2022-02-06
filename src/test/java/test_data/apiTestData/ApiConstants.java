@@ -1,4 +1,4 @@
-package testData.apiTestData;
+package test_data.apiTestData;
 
 public interface ApiConstants {
     String PROJECT_CODE = "PROJ2";

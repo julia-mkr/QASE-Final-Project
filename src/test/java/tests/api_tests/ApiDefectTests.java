@@ -1,10 +1,10 @@
-package tests.apiTests;
+package tests.api_tests;
 
 import api.adapters.DefectAdapter;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testData.apiTestData.ApiDefectData;
+import test_data.apiTestData.ApiDefectData;
 
 public class ApiDefectTests implements ApiDefectData {
 

@@ -1,4 +1,4 @@
-package testData;
+package test_data;
 
 import ui.objects.TestCase;
 

@@ -1,10 +1,10 @@
-package tests.apiTests;
+package tests.api_tests;
 
 import api.adapters.UploadAttachmentAdapter;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testData.apiTestData.ApiConstants;
+import test_data.apiTestData.ApiConstants;
 
 public class UploadAttachmentTests implements ApiConstants {
 

@@ -1,10 +1,10 @@
-package tests.apiTests;
+package tests.api_tests;
 
 import api.adapters.CaseAdapter;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testData.apiTestData.ApiTestCaseData;
+import test_data.apiTestData.ApiTestCaseData;
 
 public class ApiCaseTests implements ApiTestCaseData {
 

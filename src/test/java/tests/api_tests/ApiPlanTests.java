@@ -1,10 +1,10 @@
-package tests.apiTests;
+package tests.api_tests;
 
 import api.adapters.TestPlanAdapter;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testData.apiTestData.ApiTestPlanData;
+import test_data.apiTestData.ApiTestPlanData;
 
 public class ApiPlanTests implements ApiTestPlanData {
 

@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
-import testData.*;
+import test_data.*;
 import ui.pages.*;
 import ui.steps.ProjectRepositorySteps;
 import ui.utils.VerificationUtils;
