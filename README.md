@@ -23,11 +23,12 @@ ____
 
 ____
 
-### _Patters used in the framework_
+### _Patters implemented in the framework_
 - Page Object Model
 - Page Factory
 - Page Element
 - Steps Pattern
+- Chain of Invocations
 - Value Object
 - Adapter Pattern
 ____
