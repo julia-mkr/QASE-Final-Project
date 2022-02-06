@@ -1,4 +1,4 @@
-#Qase automation framework
+# Qase automation framework
 
 ![Qase logo](https://dz2cdn1.dzone.com/storage/temp/14330818-qase-logo.png)
 
@@ -8,7 +8,7 @@
 
 ____
 
-###_Tech stack_
+### _Tech stack_
 - Java 8
 - Maven
 - TestNG (v. 7.0.0)
@@ -21,15 +21,18 @@ ____
 - Allure TestNG (v. 2.8.1)
 - Jenkins
 
-###_Patters used in the framework_
+____
+
+### _Patters used in the framework_
 - Page Object Model
 - Page Factory
 - Page Element
 - Steps Pattern
 - Value Object
 - Adapter Pattern
+____
 
-###_Automated tests_
+### _Automated tests_
 | **Module**  |      **Submodule**      | **Description**                                                                                                                                                                                                                                                                                                              | **UI/API** |
 |-------------|:-----------------------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
 | _Login_     |                         | - Log in filling in all the required input fields with valid data<br/> - Log in filling in all the required input fields using an invalid email                                                                                                                                                                              |     UI     |
